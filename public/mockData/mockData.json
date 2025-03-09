@@ -1,0 +1,92 @@
+{
+  "climbing": [
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Topprepsklättring",
+      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
+      "price": "475",
+      "rating": [4.5, 394]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, grupp",
+      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "price": "475",
+      "rating": [4.8, 939]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, solo",
+      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
+      "price": "475",
+      "rating": [4.8, 414]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Ledklättring, novis",
+      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "price": "475",
+      "rating": [4.4, 173]
+    }
+  ],
+  "kayak": [
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Topprepsklättring",
+      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
+      "price": "475",
+      "rating": [4.5, 394]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, grupp",
+      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "price": "475",
+      "rating": [4.8, 939]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, solo",
+      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
+      "price": "475",
+      "rating": [4.8, 414]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Ledklättring, novis",
+      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "price": "475",
+      "rating": [4.4, 173]
+    }
+  ],
+  "snowshoes": [
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Topprepsklättring",
+      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
+      "price": "475",
+      "rating": [4.5, 394]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, grupp",
+      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "price": "475",
+      "rating": [4.8, 939]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Bouldering, solo",
+      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
+      "price": "475",
+      "rating": [4.8, 414]
+    }
+    {
+      "img": "../assets/topprep.png",
+      "h2": "Ledklättring, novis",
+      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "price": "475",
+      "rating": [4.4, 173]
+    }
+  ]
+}

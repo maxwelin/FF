@@ -1,0 +1,54 @@
+.imgContainer {
+  width: 100%;
+  height: 80vh;
+}
+
+.imgContainer > img {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  position: absolute;
+  width: 100%;
+  height: 80vh;
+  background: linear-gradient(60deg, rgba(0, 0, 0, 0.6) 40%, transparent 80%);
+  top: 85px;
+}
+
+.heroText {
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 64px;
+  grid-row-start: 4;
+  grid-column-start: 2;
+  grid-column-end: 7;
+  color: white;
+  margin-top: 0;
+  outline: 1px black;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  text-wrap: pretty;
+}
+
+.heroText > p {
+  font-size: 32px;
+}
+
+.cta {
+  background-color: #f8f8f8;
+  color: #053747;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  grid-column-start: 2;
+  grid-row-start: 8;
+  height: 60px;
+  width: 500px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+}

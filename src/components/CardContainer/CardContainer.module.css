@@ -1,0 +1,50 @@
+.container {
+  margin-top: 80px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 140px;
+}
+
+.container > h2 {
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.container > p {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  margin-top: -30px;
+  text-align: center;
+}
+
+.container > p > a {
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #0d80a5;
+}
+
+.cardContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.cta {
+  margin-top: 40px;
+  background-color: #0d80a5;
+  color: #f8f8f8;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  height: 60px;
+  width: 400px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  align-self: center;
+}
