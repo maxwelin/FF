@@ -9,8 +9,8 @@ const navbarItems = ["Klättring", "Kajak", "Snöskovandring", "Blogg", "Om oss"
 const Nav = () => {
   return (
     <div className={styles.navbar}>
-      {navbarItems.map((item) => (
-        <NavItem anchor={item} />
+      {navbarItems.map((item, index) => (
+        <NavItem anchor={item} key={index} />
       ))}
     </div>
   );

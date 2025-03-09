@@ -1,28 +1,28 @@
 {
   "climbing": [
     {
-      "img": "../assets/topprep.png",
+      "img": "/assets/topprep.png",
       "h2": "Topprepsklättring",
       "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
       "price": "475",
       "rating": [4.5, 394]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
+      "img": "/assets/boulderingGrupp.png",
       "h2": "Bouldering, grupp",
       "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
       "price": "475",
       "rating": [4.8, 939]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
+      "img": "/assets/boulderingSolo.png",
       "h2": "Bouldering, solo",
       "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
       "price": "475",
       "rating": [4.8, 414]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
+      "img": "/assets/led.png",
       "h2": "Ledklättring, novis",
       "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
       "price": "475",
@@ -31,61 +31,61 @@
   ],
   "kayak": [
     {
-      "img": "../assets/topprep.png",
-      "h2": "Topprepsklättring",
-      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
-      "price": "475",
+      "img": "/assets/havskajak.png",
+      "h2": "Havskajak",
+      "text": "Upplev havets lugn med en kajakupplevelse guidad av experter",
+      "price": "485",
       "rating": [4.5, 394]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Bouldering, grupp",
-      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
-      "price": "475",
+      "img": "/assets/sitontop.png",
+      "h2": "Sit-on-top-kajak",
+      "text": "Paddla enkelt och bekvämt med en sit-on-top-kajak, perfekt för alla nivåer",
+      "price": "395",
       "rating": [4.8, 939]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Bouldering, solo",
-      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
-      "price": "475",
+      "img": "/assets/rekreationskajak.png",
+      "h2": "Rekreationskajak",
+      "text": "Njut av en lugn och avkopplande kajaktur genom stilla sjöar och vackra landskap",
+      "price": "485",
       "rating": [4.8, 414]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Ledklättring, novis",
-      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "img": "/assets/forskajak.png",
+      "h2": "Forskajak",
+      "text": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
       "price": "475",
-      "rating": [4.4, 173]
+      "rating": [5, 53]
     }
   ],
   "snowshoes": [
     {
-      "img": "../assets/topprep.png",
-      "h2": "Topprepsklättring",
-      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
-      "price": "475",
+      "img": "/assets/bergGrupp.png",
+      "h2": "Snöskovandring berg, grupp",
+      "text": "Andas in den krispiga luften och vandra genom sagolika vintermiljöer",
+      "price": "1250",
       "rating": [4.5, 394]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Bouldering, grupp",
-      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "img": "/assets/vandringGrupp.png",
+      "h2": "Snöskovandring, grupp",
+      "text": "Njut av en fridfull snöskovandring genom gnistrande vinterlandskap",
       "price": "475",
       "rating": [4.8, 939]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Bouldering, solo",
-      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
-      "price": "475",
+      "img": "/assets/vandringPar.png",
+      "h2": "Snöskovandring, par",
+      "text": "Upplev tystnaden och magin i snötäckta skogar på en avkopplande vandring",
+      "price": "1890",
       "rating": [4.8, 414]
-    }
+    },
     {
-      "img": "../assets/topprep.png",
-      "h2": "Ledklättring, novis",
-      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
-      "price": "475",
+      "img": "/assets/bergSolo.png",
+      "h2": "Snöskovandring berg, solo",
+      "text": "Följ med på ett stilla vinteräventyr och utforska naturen med snöskor",
+      "price": "1450",
       "rating": [4.4, 173]
     }
   ]

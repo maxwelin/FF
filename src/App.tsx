@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import ActivityCard from "./components/ActivityCard/ActivityCard";
 import CardContainer from "./components/CardContainer/CardContainer";
 import Header from "./components/Header/Header";
@@ -6,6 +7,30 @@ import TestimonialBanner from "./components/TestimonalBanner/TestimonialBanner";
 import "./index.css";
 
 function App() {
+  interface JSONObject {
+    img: string;
+    h2: string;
+    text: string;
+    price: string;
+    rating: [number, number];
+  }
+
+  const [activities, setActivities] = useState<{
+    climbing: JSONObject[];
+    kayak: JSONObject[];
+    snowshoes: JSONObject[];
+  }>({
+    climbing: [],
+    kayak: [],
+    snowshoes: [],
+  });
+
+  useEffect(() => {
+    fetch("/mockData/mockData.json")
+      .then((response) => response.json())
+      .then((json) => setActivities(json));
+  }, []);
+
   return (
     <>
       <Header />
@@ -15,96 +40,42 @@ function App() {
         h2="Klättringsupplevelser"
         buttonText="Fler klättringsupplevelser"
       >
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
+        {activities.climbing.map((obj, index) => (
+          <ActivityCard
+            key={index}
+            img={obj.img}
+            h2={obj.h2}
+            text={obj.text}
+            price={obj.price}
+            rating={obj.rating}
+          />
+        ))}
       </CardContainer>
 
       <CardContainer h2="Kajakupplevelser" buttonText="Fler kajakupplevelser">
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
+        {activities.kayak.map((obj, index) => (
+          <ActivityCard
+            key={index}
+            img={obj.img}
+            h2={obj.h2}
+            text={obj.text}
+            price={obj.price}
+            rating={obj.rating}
+          />
+        ))}
       </CardContainer>
 
       <CardContainer h2="Snöskovandringar" buttonText="Fler snöskovandringar">
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
-        <ActivityCard
-          img="../../../public/assets/topprep.png"
-          h2="Topprepsklättring"
-          text="Säker och spännande topprepsklättring, i par eller solo med guide"
-          price="475"
-          rating={[4.8, 394]}
-        />
+        {activities.snowshoes.map((obj, index) => (
+          <ActivityCard
+            key={index}
+            img={obj.img}
+            h2={obj.h2}
+            text={obj.text}
+            price={obj.price}
+            rating={obj.rating}
+          />
+        ))}
       </CardContainer>
     </>
   );

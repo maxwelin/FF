@@ -13,7 +13,7 @@ const ActivityCard = ({ img, h2, text, price, rating }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <img src={img} alt="" />
+        <img src={img} alt="" loading="lazy" />
       </div>
       <div className={styles.textContainer}>
         <h2>{h2}</h2>
