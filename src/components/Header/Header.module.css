@@ -36,3 +36,23 @@
   text-decoration: none;
   color: black;
 }
+
+.iconContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 120px;
+}
+
+.icon {
+  cursor: pointer;
+  transition: 0.2s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.navItem {
+  &:hover {
+    text-decoration: underline;
+  }
+}

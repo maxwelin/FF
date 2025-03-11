@@ -56,7 +56,7 @@
       "h2": "Forskajak",
       "text": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
       "price": "475",
-      "rating": [5, 53]
+      "rating": [5.0, 53]
     }
   ],
   "snowshoes": [

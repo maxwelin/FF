@@ -10,6 +10,10 @@ interface Props {
 }
 
 const ActivityCard = ({ img, h2, text, price, rating }: Props) => {
+  const ratingHasDecimal = (rating: number): boolean => {
+    return rating % 1 == 0;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
@@ -20,7 +24,11 @@ const ActivityCard = ({ img, h2, text, price, rating }: Props) => {
         <p>{text}</p>
         <p className={styles.price}>{price} SEK</p>
         <div className={styles.review}>
-          <p>{rating[0]}</p>
+          {ratingHasDecimal(rating[0]) ? (
+            <p>{rating[0]}.0</p>
+          ) : (
+            <p>{rating[0]}</p>
+          )}
           <Star size={20} color="#FFD700" fill="#FFD700" />
           <p className={styles.reviewers}>({rating[1]})</p>
         </div>

@@ -34,6 +34,10 @@
 }
 
 .cta {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
   margin-top: 40px;
   background-color: #0d80a5;
   color: #f8f8f8;
@@ -46,4 +50,15 @@
   border-radius: 50px;
   cursor: pointer;
   align-self: center;
+  transition: 0.2s ease;
+  &:hover .chevron {
+    transform: translateX(15px);
+  }
+}
+
+.chevron {
+  transform: translateX(0);
+  transition: 0.2s ease;
+  position: absolute;
+  right: 30px;
 }

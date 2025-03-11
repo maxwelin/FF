@@ -39,6 +39,10 @@
 }
 
 .cta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f8f8f8;
   color: #053747;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
@@ -51,4 +55,20 @@
   border: none;
   border-radius: 50px;
   cursor: pointer;
+  &:hover {
+    background-color: #0d80a5;
+    color: #f8f8f8;
+    transition: 0.2s ease;
+  }
+  &:hover .chevron {
+    transform: rotate(90deg);
+    color: #f8f8f8;
+    transition: 0.2s ease;
+  }
+}
+
+.chevron {
+  position: absolute;
+  right: 30px;
+  transition: transform 0.2s ease;
 }

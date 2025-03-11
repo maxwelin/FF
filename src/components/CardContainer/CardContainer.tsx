@@ -1,4 +1,5 @@
 import styles from "./CardContainer.module.css";
+import { ChevronRight } from "lucide-react";
 
 interface Props {
   h2: string;
@@ -15,7 +16,10 @@ const CardContainer = ({ h2, buttonText, children }: Props) => {
         <a href="">Titta hit</a>
       </p>
       <div className={styles.cardContainer}>{children}</div>
-      <button className={styles.cta}>{buttonText}</button>
+      <button className={styles.cta}>
+        {buttonText}
+        <ChevronRight className={styles.chevron} size={32} />
+      </button>
     </div>
   );
 };

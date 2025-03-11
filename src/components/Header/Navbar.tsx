@@ -1,7 +1,11 @@
 import styles from "./Header.module.css";
 
 const NavItem = ({ anchor }: { anchor: string }) => {
-  return <a href="">{anchor}</a>;
+  return (
+    <a href="" className={styles.navItem}>
+      {anchor}
+    </a>
+  );
 };
 
 const navbarItems = ["Klättring", "Kajak", "Snöskovandring", "Blogg", "Om oss"];
