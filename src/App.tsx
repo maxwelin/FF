@@ -1,35 +1,23 @@
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import ActivityCard from "./components/ActivityCard/ActivityCard";
 import CardContainer from "./components/CardContainer/CardContainer";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import TestimonialBanner from "./components/TestimonalBanner/TestimonialBanner";
 import "./index.css";
+import Footer from "./components/Footer/Footer";
+import { ActivityContext } from "./components/Providers/ActivityContext";
+
+interface JSONObject {
+  img: string;
+  h2: string;
+  text: string;
+  price: string;
+  rating: [number, number];
+}
 
 function App() {
-  interface JSONObject {
-    img: string;
-    h2: string;
-    text: string;
-    price: string;
-    rating: [number, number];
-  }
-
-  const [activities, setActivities] = useState<{
-    climbing: JSONObject[];
-    kayak: JSONObject[];
-    snowshoes: JSONObject[];
-  }>({
-    climbing: [],
-    kayak: [],
-    snowshoes: [],
-  });
-
-  useEffect(() => {
-    fetch("/mockData/mockData.json")
-      .then((response) => response.json())
-      .then((json) => setActivities(json));
-  }, []);
+  const { activities } = useContext(ActivityContext);
 
   return (
     <>
@@ -40,7 +28,7 @@ function App() {
         h2="Klättringsupplevelser"
         buttonText="Fler klättringsupplevelser"
       >
-        {activities.climbing.map((obj, index) => (
+        {activities.climbing.map((obj: JSONObject, index: number) => (
           <ActivityCard
             key={index}
             img={obj.img}
@@ -53,7 +41,7 @@ function App() {
       </CardContainer>
 
       <CardContainer h2="Kajakupplevelser" buttonText="Fler kajakupplevelser">
-        {activities.kayak.map((obj, index) => (
+        {activities.kayak.map((obj: JSONObject, index: number) => (
           <ActivityCard
             key={index}
             img={obj.img}
@@ -66,7 +54,7 @@ function App() {
       </CardContainer>
 
       <CardContainer h2="Snöskovandringar" buttonText="Fler snöskovandringar">
-        {activities.snowshoes.map((obj, index) => (
+        {activities.snowshoes.map((obj: JSONObject, index: number) => (
           <ActivityCard
             key={index}
             img={obj.img}
@@ -77,6 +65,7 @@ function App() {
           />
         ))}
       </CardContainer>
+      <Footer />
     </>
   );
 }

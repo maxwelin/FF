@@ -1,5 +1,5 @@
 import styles from "./Header.module.css";
-import Icons from "./Icons";
+import HeaderIcons from "./HeaderIcons";
 import Logotype from "./Logotype";
 import Navbar from "./Navbar";
 
@@ -8,7 +8,7 @@ const Header = () => {
     <header className={styles.header}>
       <Logotype />
       <Navbar />
-      <Icons />
+      <HeaderIcons />
     </header>
   );
 };

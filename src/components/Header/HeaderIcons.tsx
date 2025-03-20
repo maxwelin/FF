@@ -1,7 +1,7 @@
 import styles from "./Header.module.css";
 import { User, Heart, Search } from "lucide-react";
 
-const Icons = () => {
+const HeaderIcons = () => {
   return (
     <div className={styles.iconContainer}>
       <Search className={styles.icon} />
@@ -10,4 +10,4 @@ const Icons = () => {
     </div>
   );
 };
-export default Icons;
+export default HeaderIcons;
