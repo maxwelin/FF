@@ -15,16 +15,16 @@ const Testimonial = ({ img, name, text }: Props) => {
         <img src={img} alt="Portrait photo" />
         <div className={styles.h2Container}>
           <h2>{name}</h2>
+          <div className={styles.starContainer}>
+            <Star size={16} color="#FFD700" fill="#FFD700" />
+            <Star size={16} color="#FFD700" fill="#FFD700" />
+            <Star size={16} color="#FFD700" fill="#FFD700" />
+            <Star size={16} color="#FFD700" fill="#FFD700" />
+            <Star size={16} color="#FFD700" fill="#FFD700" />
+          </div>
         </div>
         <div className={styles.pContainer}>
           <p>"{text}"</p>
-        </div>
-        <div className={styles.starContainer}>
-          <Star size={18} color="#FFD700" fill="#FFD700" />
-          <Star size={18} color="#FFD700" fill="#FFD700" />
-          <Star size={18} color="#FFD700" fill="#FFD700" />
-          <Star size={18} color="#FFD700" fill="#FFD700" />
-          <Star size={18} color="#FFD700" fill="#FFD700" />
         </div>
       </div>
     </>

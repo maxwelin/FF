@@ -4,9 +4,3 @@ body {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #f8f8f8;
 }
-
-.container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}

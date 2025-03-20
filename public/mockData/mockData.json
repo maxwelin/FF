@@ -4,6 +4,7 @@
       "img": "/assets/topprep.png",
       "h2": "Topprepsklättring",
       "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
+      "listItems": [],
       "price": "475",
       "rating": [4.5, 394]
     },
@@ -11,6 +12,7 @@
       "img": "/assets/boulderingGrupp.png",
       "h2": "Bouldering, grupp",
       "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "listItems": [],
       "price": "475",
       "rating": [4.8, 939]
     },
@@ -18,6 +20,12 @@
       "img": "/assets/boulderingSolo.png",
       "h2": "Bouldering, solo",
       "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
+      "listItems": [
+        "Guidad upplevelse",
+        "Utrustning ingår",
+        "Solo eller i par",
+        "För både noviser som erfarna"
+      ],
       "price": "475",
       "rating": [4.8, 414]
     },
@@ -25,6 +33,7 @@
       "img": "/assets/led.png",
       "h2": "Ledklättring, novis",
       "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "listItems": [],
       "price": "475",
       "rating": [4.4, 173]
     }
@@ -34,6 +43,7 @@
       "img": "/assets/havskajak.png",
       "h2": "Havskajak",
       "text": "Upplev havets lugn med en kajakupplevelse guidad av experter",
+      "listItems": [],
       "price": "485",
       "rating": [4.5, 394]
     },
@@ -41,6 +51,7 @@
       "img": "/assets/sitontop.png",
       "h2": "Sit-on-top-kajak",
       "text": "Paddla enkelt och bekvämt med en sit-on-top-kajak, perfekt för alla nivåer",
+      "listItems": [],
       "price": "395",
       "rating": [4.8, 939]
     },
@@ -48,6 +59,11 @@
       "img": "/assets/rekreationskajak.png",
       "h2": "Rekreationskajak",
       "text": "Njut av en lugn och avkopplande kajaktur genom stilla sjöar och vackra landskap",
+      "listItems": [
+        "För ensam paddlare eller sällskap",
+        "Säkerhetsutrustning ingår",
+        "För både noviser som erfarna"
+      ],
       "price": "485",
       "rating": [4.8, 414]
     },
@@ -55,6 +71,7 @@
       "img": "/assets/forskajak.png",
       "h2": "Forskajak",
       "text": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
+      "listItems": [],
       "price": "475",
       "rating": [5.0, 53]
     }
@@ -64,6 +81,7 @@
       "img": "/assets/bergGrupp.png",
       "h2": "Snöskovandring berg, grupp",
       "text": "Andas in den krispiga luften och vandra genom sagolika vintermiljöer",
+      "listItems": [],
       "price": "1250",
       "rating": [4.5, 394]
     },
@@ -71,6 +89,12 @@
       "img": "/assets/vandringGrupp.png",
       "h2": "Snöskovandring, grupp",
       "text": "Njut av en fridfull snöskovandring genom gnistrande vinterlandskap",
+      "listItems": [
+        "Guidad upplevelse",
+        "Utrustning ingår",
+        "Grupper om 4-6 personer",
+        "För både noviser som erfarna"
+      ],
       "price": "475",
       "rating": [4.8, 939]
     },
@@ -78,6 +102,7 @@
       "img": "/assets/vandringPar.png",
       "h2": "Snöskovandring, par",
       "text": "Upplev tystnaden och magin i snötäckta skogar på en avkopplande vandring",
+      "listItems": [],
       "price": "1890",
       "rating": [4.8, 414]
     },
@@ -85,6 +110,7 @@
       "img": "/assets/bergSolo.png",
       "h2": "Snöskovandring berg, solo",
       "text": "Följ med på ett stilla vinteräventyr och utforska naturen med snöskor",
+      "listItems": [],
       "price": "1450",
       "rating": [4.4, 173]
     }
