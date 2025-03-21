@@ -114,5 +114,14 @@
       "price": "1450",
       "rating": [4.4, 173]
     }
+  ],
+  "blogItems": [
+    {
+      "h2": "Naturen som träningspartner",
+      "h3": "Hur utomhusäventyr förbättrar din fysiska och mentala hälsa",
+      "img": "/assets/adventure.png",
+      "alt": "Girl on adventure in the mountains",
+      "text": "Utomhusäventyr som klättring, kajakpaddling och snöskovandring stärker både kroppen och sinnet genom att utmana din fysiska uthållighet och ge mentalt välbefinnande. Naturen fungerar som en träningspartner som förbättrar din hälsa på ett sätt som är både roligt och återhämtande."
+    }
   ]
 }

@@ -28,7 +28,7 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  width: 700px;
+  width: 660px;
   font-family: "Montserrat";
 }
 
@@ -45,7 +45,7 @@
 .iconContainer {
   display: flex;
   justify-content: space-between;
-  width: 120px;
+  width: 140px;
 }
 
 .icon {

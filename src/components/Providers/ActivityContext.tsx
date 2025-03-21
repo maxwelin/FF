@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
 
-interface JSONObject {
+interface ActivityObject {
   img: string;
   h2: string;
   text: string;
@@ -8,12 +8,21 @@ interface JSONObject {
   rating: [number, number];
 }
 
+interface BlogObject {
+  h2: string;
+  h3: string;
+  img: string;
+  alt: string;
+  text: string;
+}
+
 interface ContextProps {
   activities: {
-    climbing: JSONObject[];
-    kayak: JSONObject[];
-    snowshoes: JSONObject[];
+    climbing: ActivityObject[];
+    kayak: ActivityObject[];
+    snowshoes: ActivityObject[];
   };
+  blogItems: BlogObject[];
 }
 
 interface ProviderProps {
@@ -23,10 +32,11 @@ interface ProviderProps {
 const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
+  const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<{
-    climbing: JSONObject[];
-    kayak: JSONObject[];
-    snowshoes: JSONObject[];
+    climbing: ActivityObject[];
+    kayak: ActivityObject[];
+    snowshoes: ActivityObject[];
   }>({
     climbing: [],
     kayak: [],
@@ -36,11 +46,14 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   useEffect(() => {
     fetch("/mockData/mockData.json")
       .then((response) => response.json())
-      .then((data) => setActivities(data));
+      .then((data) => {
+        setActivities(data);
+        setBlogItems(data.blogItems);
+      });
   }, []);
 
   return (
-    <ActivityContext.Provider value={{ activities }}>
+    <ActivityContext.Provider value={{ activities, blogItems }}>
       {children}
     </ActivityContext.Provider>
   );

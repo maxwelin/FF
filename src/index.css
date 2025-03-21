@@ -4,5 +4,5 @@ body {
   box-sizing: border-box;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #f8f8f8;
-  overflow: scroll;
+  overflow-y: scroll;
 }

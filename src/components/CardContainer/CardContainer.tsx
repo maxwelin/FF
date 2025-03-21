@@ -5,10 +5,10 @@ import { ChevronRight } from "lucide-react";
 interface Props {
   h2: string;
   buttonText: string;
-  activity: JSONObject[];
+  activity: ActivityObject[];
 }
 
-interface JSONObject {
+interface ActivityObject {
   img: string;
   h2: string;
   text: string;
@@ -25,7 +25,7 @@ const CardContainer = ({ h2, buttonText, activity }: Props) => {
         <a href="">Titta hit</a>
       </p>
       <div className={styles.cardContainer}>
-        {activity.map((obj: JSONObject, index: number) => (
+        {activity.map((obj: ActivityObject, index: number) => (
           <ActivityCard
             key={index}
             img={obj.img}
