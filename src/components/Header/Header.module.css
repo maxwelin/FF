@@ -32,9 +32,14 @@
   font-family: "Montserrat";
 }
 
-.navbar > a {
+.navbar > .navItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: black;
+  height: 50px;
+  transition: tranform 0.2s ease;
 }
 
 .iconContainer {
@@ -55,4 +60,10 @@
   &:hover {
     text-decoration: underline;
   }
+}
+
+.active {
+  text-decoration: underline !important;
+  transform: translateY(-8px);
+  transition: tranform 0.2s ease;
 }

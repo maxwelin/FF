@@ -1,20 +1,33 @@
 import styles from "./Header.module.css";
+import { NavLink, useMatch, useResolvedPath } from "react-router-dom";
 
-const NavItem = ({ anchor }: { anchor: string }) => {
+interface Props {
+  link: string;
+  route: string;
+}
+
+const NavItem = ({ link, route }: Props) => {
+  const resolvedPath = useResolvedPath(route);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
   return (
-    <a href="" className={styles.navItem}>
-      {anchor}
-    </a>
+    <NavLink
+      to={route}
+      className={`${styles.navItem} ${isActive ? styles.active : ""}`}
+    >
+      {link}
+    </NavLink>
   );
 };
 
 const navbarItems = ["Klättring", "Kajak", "Snöskovandring", "Blogg", "Om oss"];
+const navbarRoutes = ["/climbing", "/kayak", "/snowshoes", "/blog", "/about"];
 
 const Nav = () => {
   return (
     <div className={styles.navbar}>
       {navbarItems.map((item, index) => (
-        <NavItem anchor={item} key={index} />
+        <NavItem link={item} key={index} route={navbarRoutes[index]} />
       ))}
     </div>
   );
