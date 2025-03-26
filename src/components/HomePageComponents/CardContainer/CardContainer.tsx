@@ -9,9 +9,10 @@ interface Props {
 }
 
 interface ActivityObject {
+  id: string;
   img: string;
   h2: string;
-  text: string;
+  h3: string;
   price: string;
   rating: [number, number];
 }
@@ -25,12 +26,13 @@ const CardContainer = ({ h2, buttonText, activity }: Props) => {
         <a href="">Titta hit</a>
       </p>
       <div className={styles.cardContainer}>
-        {activity.map((obj: ActivityObject, index: number) => (
+        {activity.map((obj: ActivityObject) => (
           <ActivityCard
-            key={index}
+            key={obj.id}
+            id={obj.id}
             img={obj.img}
             h2={obj.h2}
-            text={obj.text}
+            h3={obj.h3}
             price={obj.price}
             rating={obj.rating}
           />

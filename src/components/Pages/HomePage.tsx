@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
-import CardContainer from "../CardContainer/CardContainer";
-import Hero from "../Hero/Hero";
-import TestimonialBanner from "../TestimonalBanner/TestimonialBanner";
-import BlogItem from "../BlogItem/BlogItem";
+import CardContainer from "../HomePageComponents/CardContainer/CardContainer";
+import Hero from "../HomePageComponents/Hero/Hero";
+import TestimonialBanner from "../HomePageComponents/TestimonalBanner/TestimonialBanner";
+import BlogItem from "../common/BlogItem/BlogItem";
+import Carousell from "../HomePageComponents/Carousell/Carousell";
 
 const HomePage = () => {
-  const { activities, blogItems }: Object[] = useContext(ActivityContext);
+  const { activities, blogItems }: any = useContext(ActivityContext);
 
   return (
     <>
@@ -17,6 +18,7 @@ const HomePage = () => {
         buttonText="Fler klättringsupplevelser"
         activity={activities.climbing}
       ></CardContainer>
+      <Carousell />
       <CardContainer
         h2="Kajakupplevelser"
         buttonText="Fler kajakupplevelser"

@@ -1,3 +1,8 @@
+.link {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color from the parent element */
+}
+
 .container {
   display: flex;
   flex-grow: 1;
@@ -37,8 +42,11 @@
 
 .textContainer {
   position: relative;
+  display: flex;
+  flex-direction: column;
   padding: 15px;
-  height: 100%;
+  box-sizing: border-box;
+  height: 180px;
 }
 
 .textContainer > h2 {
@@ -77,8 +85,8 @@
 
 .priceReviewContainer {
   width: 100%;
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 0px;
 }

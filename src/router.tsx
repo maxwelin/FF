@@ -4,10 +4,11 @@ import ClimbingPage from "./components/Pages/ClimbingPage.tsx";
 import KayakPage from "./components/Pages/KayakPage.tsx";
 import SnowshoesPage from "./components/Pages/SnowshoesPage.tsx";
 import NotFoundPage from "./components/Pages/NotFoundPage.tsx";
-import Header from "./components/Header/Header.tsx";
-import Footer from "./components/Footer/Footer.tsx";
+import Header from "./components/common/Header/Header.tsx";
+import Footer from "./components/common/Footer/Footer.tsx";
 import AboutPage from "./components/Pages/AboutPage.tsx";
 import BlogPage from "./components/Pages/BlogPage.tsx";
+import Book from "./components/Pages/Book.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,16 @@ export const router = createBrowserRouter([
       <>
         <Header />
         <AboutPage />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/book/:id",
+    element: (
+      <>
+        <Header />
+        <Book />
         <Footer />
       </>
     ),

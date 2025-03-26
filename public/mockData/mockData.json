@@ -1,25 +1,42 @@
 {
   "climbing": [
     {
+      "id": "1",
       "img": "/assets/topprep.png",
       "h2": "Topprepsklättring",
-      "text": "Säker och spännande topprepsklättring, i par eller solo med guide",
-      "listItems": [],
+      "h3": "Säker och spännande topprepsklättring, i par eller solo med guide",
+      "h4": "Säker och spännande topprepsklättring",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Solo eller i par",
+        "Utrustning ingår",
+        "Passar noviser såväl erfarna klättrare"
+      ],
       "price": "475",
       "rating": [4.5, 394]
     },
     {
+      "id": "2",
       "img": "/assets/boulderingGrupp.png",
       "h2": "Bouldering, grupp",
-      "text": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
-      "listItems": [],
+      "h3": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
+      "h4": "Klättra, skratta och utmana dig själv",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Grupper om 4-6 inklusive guide",
+        "Utrustning ingår",
+        "Passar noviser såväl erfarna klättrare"
+      ],
       "price": "475",
       "rating": [4.8, 939]
     },
     {
+      "id": "3",
       "img": "/assets/boulderingSolo.png",
       "h2": "Bouldering, solo",
-      "text": "Upplev spänning och utmaning,  boulderingäventyr med erfaren guide",
+      "h3": "Upplev både spänning och utmaning, boulderingäventyr med erfaren guide",
+      "h4": "Upplev både spänning och utmaning",
+      "text": "lorem ipsum för i helvete",
       "listItems": [
         "Guidad upplevelse",
         "Utrustning ingår",
@@ -30,35 +47,58 @@
       "rating": [4.8, 414]
     },
     {
+      "id": "4",
       "img": "/assets/led.png",
       "h2": "Ledklättring, novis",
-      "text": "Ta klättringen till nästa nivå, lär dig ledklättra",
-      "listItems": [],
+      "h3": "Ta klättringen till nästa nivå, lär dig ledklättra",
+      "h4": "Ta klättringen till nästa nivå",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Solo eller i par",
+        "Utrustning ingår",
+        "Kräver ledklättringskort"
+      ],
       "price": "475",
       "rating": [4.4, 173]
     }
   ],
   "kayak": [
     {
+      "id": "5",
       "img": "/assets/havskajak.png",
       "h2": "Havskajak",
-      "text": "Upplev havets lugn med en kajakupplevelse guidad av experter",
-      "listItems": [],
+      "h3": "Upplev havets lugn med en kajakupplevelse guidad av experter",
+      "h4": "Upplev havets lugn",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "För ensam paddlare eller sällskap",
+        "Säkerhetsutrustning ingår"
+      ],
       "price": "485",
       "rating": [4.5, 394]
     },
     {
+      "id": "6",
       "img": "/assets/sitontop.png",
       "h2": "Sit-on-top-kajak",
-      "text": "Paddla enkelt och bekvämt med en sit-on-top-kajak, perfekt för alla nivåer",
-      "listItems": [],
+      "h3": "Paddla enkelt och bekvämt med en sit-on-top-kajak, perfekt för alla nivåer",
+      "h4": "Paddla enkelt och bekvämt - sit-on-top-kajak",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "För ensam paddlare eller sällskap",
+        "Säkerhetsutrustning ingår",
+        "Perfekt för den bekväma paddlaren"
+      ],
       "price": "395",
       "rating": [4.8, 939]
     },
     {
+      "id": "7",
       "img": "/assets/rekreationskajak.png",
       "h2": "Rekreationskajak",
-      "text": "Njut av en lugn och avkopplande kajaktur genom stilla sjöar och vackra landskap",
+      "h3": "Njut av en lugn och avkopplande kajaktur genom stilla sjöar och vackra landskap",
+      "h4": "Njut av en lugn och avkopplande kajaktur",
+      "text": "lorem ipsum för i helvete",
       "listItems": [
         "För ensam paddlare eller sällskap",
         "Säkerhetsutrustning ingår",
@@ -68,27 +108,44 @@
       "rating": [4.8, 414]
     },
     {
+      "id": "8",
       "img": "/assets/forskajak.png",
       "h2": "Forskajak",
-      "text": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
-      "listItems": [],
+      "h3": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
+      "h4": "Kasta dig ut i ett intensivt äventyr",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Grupper om 4-6 inklusive guide",
+        "Säkerhetsutrustning ingår",
+        "För den erfarna paddlaren"
+      ],
       "price": "475",
       "rating": [5.0, 53]
     }
   ],
   "snowshoes": [
     {
+      "id": "9",
       "img": "/assets/bergGrupp.png",
       "h2": "Snöskovandring berg, grupp",
-      "text": "Andas in den krispiga luften och vandra genom sagolika vintermiljöer",
-      "listItems": [],
+      "h3": "Andas in den krispiga luften och vandra genom sagolika vintermiljöer",
+      "h4": "Vandra genom sagolika vintermiljöer",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Grupper om 4-6 inklusive guide",
+        "All utrustning ingår",
+        "För den erfarna vandraren"
+      ],
       "price": "1250",
       "rating": [4.5, 394]
     },
     {
+      "id": "10",
       "img": "/assets/vandringGrupp.png",
       "h2": "Snöskovandring, grupp",
-      "text": "Njut av en fridfull snöskovandring genom gnistrande vinterlandskap",
+      "h3": "Njut av en fridfull snöskovandring genom gnistrande vinterlandskap",
+      "h4": "Njut av en fridfull snöskovandring",
+      "text": "lorem ipsum för i helvete",
       "listItems": [
         "Guidad upplevelse",
         "Utrustning ingår",
@@ -99,18 +156,28 @@
       "rating": [4.8, 939]
     },
     {
+      "id": "11",
       "img": "/assets/vandringPar.png",
       "h2": "Snöskovandring, par",
-      "text": "Upplev tystnaden och magin i snötäckta skogar på en avkopplande vandring",
-      "listItems": [],
+      "h3": "Upplev tystnaden och magin i snötäckta skogar på en avkopplande vandring",
+      "h4": "Upplev tystnaden och magin i snötäckta skogar",
+      "text": "lorem ipsum för i helvete",
+      "listItems": ["Utrustning ingår", "För både noviser som erfarna"],
       "price": "1890",
       "rating": [4.8, 414]
     },
     {
+      "id": "12",
       "img": "/assets/bergSolo.png",
       "h2": "Snöskovandring berg, solo",
-      "text": "Följ med på ett stilla vinteräventyr och utforska naturen med snöskor",
-      "listItems": [],
+      "h3": "Följ med på ett stilla vinteräventyr och utforska naturen med snöskor",
+      "h4": "Följ med på ett stilla vinteräventyr",
+      "text": "lorem ipsum för i helvete",
+      "listItems": [
+        "Solo med guide",
+        "Utrustning ingår",
+        "För både noviser som erfarna"
+      ],
       "price": "1450",
       "rating": [4.4, 173]
     }
@@ -119,6 +186,7 @@
     {
       "h2": "Naturen som träningspartner",
       "h3": "Hur utomhusäventyr förbättrar din fysiska och mentala hälsa",
+      "id": "",
       "img": "/assets/adventure.png",
       "alt": "Girl on adventure in the mountains",
       "text": "Utomhusäventyr som klättring, kajakpaddling och snöskovandring stärker både kroppen och sinnet genom att utmana din fysiska uthållighet och ge mentalt välbefinnande. Naturen fungerar som en träningspartner som förbättrar din hälsa på ett sätt som är både roligt och återhämtande."

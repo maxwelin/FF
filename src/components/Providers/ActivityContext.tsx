@@ -1,8 +1,10 @@
 import { createContext, useEffect, useState, ReactNode } from "react";
 
 interface ActivityObject {
+  id: string;
   img: string;
   h2: string;
+  h3: string;
   text: string;
   price: string;
   rating: [number, number];
@@ -23,6 +25,8 @@ interface ContextProps {
     snowshoes: ActivityObject[];
   };
   blogItems: BlogObject[];
+  persons: number;
+  setPersons: React.Dispatch<React.SetStateAction<number>>;
 }
 
 interface ProviderProps {
@@ -32,6 +36,7 @@ interface ProviderProps {
 const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
+  const [persons, setPersons] = useState(1);
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<{
     climbing: ActivityObject[];
@@ -53,7 +58,9 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   }, []);
 
   return (
-    <ActivityContext.Provider value={{ activities, blogItems }}>
+    <ActivityContext.Provider
+      value={{ activities, blogItems, persons, setPersons }}
+    >
       {children}
     </ActivityContext.Provider>
   );
