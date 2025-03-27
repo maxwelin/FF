@@ -5,6 +5,7 @@ import Hero from "../HomePageComponents/Hero/Hero";
 import TestimonialBanner from "../HomePageComponents/TestimonalBanner/TestimonialBanner";
 import BlogItem from "../common/BlogItem/BlogItem";
 import Carousell from "../HomePageComponents/Carousell/Carousell";
+import Loading from "../common/Loading/Loading";
 
 const HomePage = () => {
   const { activities, blogItems }: any = useContext(ActivityContext);
@@ -24,13 +25,7 @@ const HomePage = () => {
         buttonText="Fler kajakupplevelser"
         activity={activities.kayak}
       ></CardContainer>
-      <BlogItem
-        h2={blogItems[0].h2}
-        h3={blogItems[0].h3}
-        img={blogItems[0].img}
-        alt={blogItems[0].alt}
-        text={blogItems[0].text}
-      />
+      {blogItems[0] ? <BlogItem blogItem={blogItems[0]} /> : <Loading />}
       <CardContainer
         h2="Snöskovandringar"
         buttonText="Fler snöskovandringar"

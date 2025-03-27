@@ -11,7 +11,7 @@ const Form = () => {
   };
 
   return (
-    <form action="" className={styles.formContainer}>
+    <form className={styles.formContainer}>
       <label className={styles.emailLabel} htmlFor="email">
         Email
       </label>
@@ -64,6 +64,10 @@ const Form = () => {
           <ChevronRight className={styles.chevronPersonSelect} size={28} />
         </div>
       </div>
+      <button type="button" className={styles.cta}>
+        Boka
+        <ChevronRight className={styles.chevron} size={32} />
+      </button>
     </form>
   );
 };

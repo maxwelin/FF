@@ -34,5 +34,6 @@
   text-align: center;
 }
 
-.container {
+.wrapper > p > span {
+  background-color: transparent;
 }

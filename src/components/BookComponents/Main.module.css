@@ -5,13 +5,46 @@
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 60px;
+  margin-bottom: 100px;
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+  }
 }
 
 .container {
   height: 560px;
   width: 500px;
   flex-grow: 1;
-  border: 1px solid black;
+  @media only screen and (max-width: 1200px) {
+    min-width: 500px;
+    width: 80%;
+    align-self: center;
+  }
+}
+
+.descriptionContainer {
+  width: 75%;
+  font-size: 16px;
+}
+
+.descriptionContainer > li {
+  margin-top: 16px;
+}
+
+.certificateContainer {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.certificateContainer > h3 {
+  display: flex;
+  justify-self: center;
+}
+
+.certificateContainer > img {
+  width: 100px;
+  height: 100px;
+  margin-top: 16px;
 }
 
 .similairContainer {
@@ -187,7 +220,6 @@ label {
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-top: 30px;
   background-color: #0d80a5;
   color: #f8f8f8;
   font-family: "Open Sans", "Helvetica Neue", sans-serif;

@@ -1,5 +1,5 @@
 import styles from "./Main.module.css";
-import { Check, ChevronRight, Star, StarHalf } from "lucide-react";
+import { Check, Star, StarHalf } from "lucide-react";
 import Form from "./Form";
 import { ReactNode, useContext, useEffect } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
@@ -62,10 +62,6 @@ export const Main = ({ activity }: any) => {
           ))}
         </ul>
         <Form />
-        <button className={styles.cta}>
-          Boka
-          <ChevronRight className={styles.chevron} size={32} />
-        </button>
         <div className={styles.checkContainer}>
           <p>
             <Check className={styles.check} />

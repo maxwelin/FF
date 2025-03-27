@@ -6,14 +6,17 @@
       "h2": "Topprepsklättring",
       "h3": "Säker och spännande topprepsklättring, i par eller solo med guide",
       "h4": "Säker och spännande topprepsklättring",
-      "text": "lorem ipsum för i helvete",
+      "description": "Upplev spänningen av att klättra på hög höjd med en erfaren guide. Oavsett om du är nybörjare eller erfaren, får du professionell vägledning för en säker och rolig upplevelse.",
+      "meeting_point": "Vi samlas vid våra lokaler på Äventyrsvägen 10:00 och beger oss sedan tillsammans till klättringsområdet.",
+      "information": "Utrustning ingår. Aktiviteten passar både för nybörjare och erfarna klättrare, med fokus på säkerhet och teknik.",
       "listItems": [
         "Solo eller i par",
         "Utrustning ingår",
         "Passar noviser såväl erfarna klättrare"
       ],
       "price": "475",
-      "rating": [4.5, 394]
+      "rating": [4.5, 394],
+      "category": "climbing"
     },
     {
       "id": "2",
@@ -21,14 +24,17 @@
       "h2": "Bouldering, grupp",
       "h3": "Klättra, skratta och utmana dig själv - boulderingäventyr i grupp",
       "h4": "Klättra, skratta och utmana dig själv",
-      "text": "lorem ipsum för i helvete",
+      "description": "Kombinerar rörelse, utmaning och gemenskap. Oavsett om du är nybörjare eller erfaren finns leder för alla nivåer, och vi hjälper dig att hitta rätt utmaning!",
+      "meeting_point": "Vi möts kl 10:00 vid våra lokaler på Äventyrsvägen och rör oss därefter tillsammans mot klipporna! Aktiviteten pågår i cirka 5 timmar och vi ser självklart till att ta paus för fika i den vackra miljön.",
+      "information": "Under dagen går vi igenom teknik, säkerhet och hur vi använder crashpads och spotning för en trygg och rolig upplevelse. Crashpads och klätterskor ingår så allt du behöver ta med är bekväma kläder, vatten och ett glatt humör. Välkommen till en oförglömlig dag på klipporna!",
       "listItems": [
         "Grupper om 4-6 inklusive guide",
         "Utrustning ingår",
         "Passar noviser såväl erfarna klättrare"
       ],
       "price": "475",
-      "rating": [4.8, 939]
+      "rating": [4.8, 939],
+      "category": "climbing"
     },
     {
       "id": "3",
@@ -36,7 +42,9 @@
       "h2": "Bouldering, solo",
       "h3": "Upplev både spänning och utmaning, boulderingäventyr med erfaren guide",
       "h4": "Upplev både spänning och utmaning",
-      "text": "lorem ipsum för i helvete",
+      "description": "Testa dina gränser i solo-bouldering under professionell vägledning. Perfekt för dem som söker utmaning och vill lära sig mer om teknik och säkerhet.",
+      "meeting_point": "Vi möts vid våra lokaler på Äventyrsvägen kl 10:00 och tar oss därefter till klätterområdet.",
+      "information": "Guidad upplevelse. Crashpads och klätterskor ingår. Denna aktivitet passar både nybörjare och erfarna klättrare, med fokus på säkerhet och teknik.",
       "listItems": [
         "Guidad upplevelse",
         "Utrustning ingår",
@@ -44,7 +52,8 @@
         "För både noviser som erfarna"
       ],
       "price": "475",
-      "rating": [4.8, 414]
+      "rating": [4.8, 414],
+      "category": "climbing"
     },
     {
       "id": "4",
@@ -52,14 +61,17 @@
       "h2": "Ledklättring, novis",
       "h3": "Ta klättringen till nästa nivå, lär dig ledklättra",
       "h4": "Ta klättringen till nästa nivå",
-      "text": "lorem ipsum för i helvete",
+      "description": "Lär dig ledklättra i en säker och utmanande miljö. Aktiviteten anpassas för nybörjare, så även om du inte har erfarenhet av ledklättring får du den nödvändiga introduktionen.",
+      "meeting_point": "Vi träffas på våra lokaler kl 10:00 och beger oss tillsammans till klätterområdet.",
+      "information": "För att delta krävs ett ledklättringskort. Utrustning ingår. Denna aktivitet passar för nybörjare som vill lära sig ledklättra under professionell vägledning.",
       "listItems": [
         "Solo eller i par",
         "Utrustning ingår",
         "Kräver ledklättringskort"
       ],
       "price": "475",
-      "rating": [4.4, 173]
+      "rating": [4.4, 173],
+      "category": "climbing"
     }
   ],
   "kayak": [
@@ -69,13 +81,16 @@
       "h2": "Havskajak",
       "h3": "Upplev havets lugn med en kajakupplevelse guidad av experter",
       "h4": "Upplev havets lugn",
-      "text": "lorem ipsum för i helvete",
+      "description": "Paddla genom lugna havsvikar och njut av en avkopplande upplevelse i kajak. Du får professionell vägledning och lär dig paddelteknik.",
+      "meeting_point": "Mötesplatsen är vid kajakcentret kl 10:00 där vi ger en kort introduktion innan vi beger oss ut på vattnet.",
+      "information": "Säkerhetsutrustning ingår. Aktiviteten passar både för nybörjare och erfarna paddlare som vill njuta av en lugn tur på vattnet.",
       "listItems": [
         "För ensam paddlare eller sällskap",
         "Säkerhetsutrustning ingår"
       ],
       "price": "485",
-      "rating": [4.5, 394]
+      "rating": [4.5, 394],
+      "category": "kayak"
     },
     {
       "id": "6",
@@ -83,14 +98,17 @@
       "h2": "Sit-on-top-kajak",
       "h3": "Paddla enkelt och bekvämt med en sit-on-top-kajak, perfekt för alla nivåer",
       "h4": "Paddla enkelt och bekvämt - sit-on-top-kajak",
-      "text": "lorem ipsum för i helvete",
+      "description": "Upplev kajakpaddling på ett enklare och bekvämare sätt. Denna typ av kajak är perfekt för både nybörjare och erfarna paddlare.",
+      "meeting_point": "Mötesplatsen är kajakstationen kl 10:00 där vi börjar med en introduktion innan vi ger oss ut på sjön.",
+      "information": "Säkerhetsutrustning ingår. Denna aktivitet passar nybörjare såväl som erfarna paddlare.",
       "listItems": [
         "För ensam paddlare eller sällskap",
         "Säkerhetsutrustning ingår",
         "Perfekt för den bekväma paddlaren"
       ],
       "price": "395",
-      "rating": [4.8, 939]
+      "rating": [4.8, 939],
+      "category": "kayak"
     },
     {
       "id": "7",
@@ -98,14 +116,17 @@
       "h2": "Rekreationskajak",
       "h3": "Njut av en lugn och avkopplande kajaktur genom stilla sjöar och vackra landskap",
       "h4": "Njut av en lugn och avkopplande kajaktur",
-      "text": "lorem ipsum för i helvete",
+      "description": "Följ med på en rofylld paddeltur genom vackra sjöar och omgivningar. Perfekt för den som söker en mer avkopplande upplevelse.",
+      "meeting_point": "Vi träffas vid sjön kl 10:00 där vi genomgår en säkerhetsgenomgång och paddelteknik innan vi ger oss ut på vattnet.",
+      "information": "Säkerhetsutrustning ingår. Denna tur är anpassad för både nybörjare och erfarna paddlare.",
       "listItems": [
         "För ensam paddlare eller sällskap",
         "Säkerhetsutrustning ingår",
         "För både noviser som erfarna"
       ],
       "price": "485",
-      "rating": [4.8, 414]
+      "rating": [4.8, 414],
+      "category": "kayak"
     },
     {
       "id": "8",
@@ -113,14 +134,17 @@
       "h2": "Forskajak",
       "h3": "Kasta dig ut i ett intensivt äventyr med kraftiga strömmar och maximal spänning",
       "h4": "Kasta dig ut i ett intensivt äventyr",
-      "text": "lorem ipsum för i helvete",
+      "description": "Följ med på en spännande tur genom forsande vatten och utmana dina gränser. För erfarna paddlare som söker en adrenalinfylld upplevelse.",
+      "meeting_point": "Vi samlas kl 10:00 vid forsområdet där vi går igenom säkerheten och utrustningen innan vi ger oss ut i forsen.",
+      "information": "För erfarna paddlare. Säkerhetsutrustning ingår. Förbered dig på en utmanande och adrenalinfylld upplevelse i forsen.",
       "listItems": [
         "Grupper om 4-6 inklusive guide",
         "Säkerhetsutrustning ingår",
         "För den erfarna paddlaren"
       ],
       "price": "475",
-      "rating": [5.0, 53]
+      "rating": [5.0, 53],
+      "category": "kayak"
     }
   ],
   "snowshoes": [
@@ -130,14 +154,17 @@
       "h2": "Snöskovandring berg, grupp",
       "h3": "Andas in den krispiga luften och vandra genom sagolika vintermiljöer",
       "h4": "Vandra genom sagolika vintermiljöer",
-      "text": "lorem ipsum för i helvete",
+      "description": "Ge dig ut på en oförglömlig snöskovandring genom vackra bergsområden. Upplev vinterlandskapet på nära håll och få en fridfull och energigivande upplevelse.",
+      "meeting_point": "Vi samlas kl 09:30 vid startpunkten och förbereder oss för en heldagstur i bergen.",
+      "information": "Säkerhetsutrustning ingår. Denna aktivitet passar för erfarna vandrare.",
       "listItems": [
         "Grupper om 4-6 inklusive guide",
         "All utrustning ingår",
         "För den erfarna vandraren"
       ],
       "price": "1250",
-      "rating": [4.5, 394]
+      "rating": [4.5, 394],
+      "category": "snowshoes"
     },
     {
       "id": "10",
@@ -145,7 +172,9 @@
       "h2": "Snöskovandring, grupp",
       "h3": "Njut av en fridfull snöskovandring genom gnistrande vinterlandskap",
       "h4": "Njut av en fridfull snöskovandring",
-      "text": "lorem ipsum för i helvete",
+      "description": "Vandra i snötäckta landskap och njut av den friska vinterluften. En lugn och rofylld upplevelse för både kropp och sinne.",
+      "meeting_point": "Vi träffas vid startpunkten kl 10:00 och påbörjar vår vandring tillsammans.",
+      "information": "Säkerhetsutrustning ingår. Aktiviteten passar både nybörjare och erfarna vandrare.",
       "listItems": [
         "Guidad upplevelse",
         "Utrustning ingår",
@@ -153,7 +182,8 @@
         "För både noviser som erfarna"
       ],
       "price": "475",
-      "rating": [4.8, 939]
+      "rating": [4.8, 939],
+      "category": "snowshoes"
     },
     {
       "id": "11",
@@ -161,10 +191,13 @@
       "h2": "Snöskovandring, par",
       "h3": "Upplev tystnaden och magin i snötäckta skogar på en avkopplande vandring",
       "h4": "Upplev tystnaden och magin i snötäckta skogar",
-      "text": "lorem ipsum för i helvete",
+      "description": "Vandra genom tysta snöklädda skogar och upplev den fridfulla magin av vinterlandskapet. En perfekt upplevelse för par som söker lugn och stillhet.",
+      "meeting_point": "Vi träffas vid startpunkten kl 10:00 för en fridfull dag i naturen.",
+      "information": "Säkerhetsutrustning ingår. Denna tur passar både noviser och erfarna vandrare.",
       "listItems": ["Utrustning ingår", "För både noviser som erfarna"],
       "price": "1890",
-      "rating": [4.8, 414]
+      "rating": [4.8, 414],
+      "category": "snowshoes"
     },
     {
       "id": "12",
@@ -172,14 +205,17 @@
       "h2": "Snöskovandring berg, solo",
       "h3": "Följ med på ett stilla vinteräventyr och utforska naturen med snöskor",
       "h4": "Följ med på ett stilla vinteräventyr",
-      "text": "lorem ipsum för i helvete",
+      "description": "Följ med på en fridfull vintervandring genom orörda landskap. En perfekt aktivitet för den som söker lugn och harmoni i naturen.",
+      "meeting_point": "Vi samlas vid startpunkten kl 10:00 och förbereder oss för en stillsam dag i naturen.",
+      "information": "Säkerhetsutrustning ingår. Denna tur passar både noviser och erfarna vandrare.",
       "listItems": [
         "Solo med guide",
         "Utrustning ingår",
         "För både noviser som erfarna"
       ],
       "price": "1450",
-      "rating": [4.4, 173]
+      "rating": [4.4, 173],
+      "category": "snowshoes"
     }
   ],
   "blogItems": [

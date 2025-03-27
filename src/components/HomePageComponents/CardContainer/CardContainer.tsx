@@ -1,3 +1,4 @@
+import Loading from "../../common/Loading/Loading";
 import ActivityCard from "../ActivityCard/ActivityCard";
 import styles from "./CardContainer.module.css";
 import { ChevronRight } from "lucide-react";
@@ -18,6 +19,9 @@ interface ActivityObject {
 }
 
 const CardContainer = ({ h2, buttonText, activity }: Props) => {
+  if (!activity) {
+    return <Loading />;
+  }
   return (
     <div className={styles.container}>
       <h2>{h2}</h2>

@@ -9,23 +9,27 @@ const Book = () => {
   const { id } = useParams();
   const { blogItems, activities }: any = useContext(ActivityContext);
 
-  const activityValues = Object.values(activities).flat();
+  const foundActivity: any = Object.values(activities)
+    .flat()
+    .find((activity: any) => activity.id === id);
 
-  const foundActivity = activityValues.find(
-    (activity: any) => activity.id === id
-  );
+  const similairActivities = Object.values(activities)
+    .flat()
+    .filter(
+      (activity: any) =>
+        activity.category === foundActivity.category &&
+        activity.id !== foundActivity.id
+    )
+    .slice(0, 2);
 
   return (
     <>
       <Main activity={foundActivity} />
-      <Description activity={foundActivity} />
-      <BlogItem
-        h2={blogItems[0].h2}
-        h3={blogItems[0].h3}
-        img={blogItems[0].img}
-        alt={blogItems[0].alt}
-        text={blogItems[0].text}
+      <Description
+        activity={foundActivity}
+        similairActivities={similairActivities}
       />
+      <BlogItem blogItem={blogItems[0]} />
     </>
   );
 };

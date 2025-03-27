@@ -6,8 +6,6 @@ const Carousell = () => {
   const month = newDate.getMonth();
   const year = newDate.getFullYear();
 
-  console.log(day, month);
-
   const monthMap = {
     0: "jan",
     1: "feb",
@@ -27,7 +25,10 @@ const Carousell = () => {
     <div className={styles.wrapper}>
       <h3>-30% på utvalda upplevelser, endast idag</h3>
       <p>
-        Erbjudandet gäller t.o.m. {day} {monthMap[month]} {year} 23:59
+        Erbjudandet gäller t.o.m.
+        <strong>
+          &nbsp;{day} {monthMap[month]} {year} 23:59
+        </strong>
       </p>
       <div className={styles.container}></div>
     </div>
