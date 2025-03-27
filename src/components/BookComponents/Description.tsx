@@ -1,13 +1,13 @@
 import ActivityCard from "../HomePageComponents/ActivityCard/ActivityCard";
 import styles from "./Main.module.css";
 
-const Description = ({ activity }) => {
+const Description = ({ activity }: any) => {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
         <h3>{activity.h3}</h3>
         <p>{activity.text}</p>
-        <div>
+        <div className={styles.descriptionContainer}>
           <h3>Trygghet och expertis i naturen</h3>
           <p>
             Alla våra guider genomgår regelbundna säkerhetsutbildningar och

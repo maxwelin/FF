@@ -7,11 +7,13 @@ import Description from "../BookComponents/Description";
 
 const Book = () => {
   const { id } = useParams();
-  const { blogItems, activities } = useContext(ActivityContext);
+  const { blogItems, activities }: any = useContext(ActivityContext);
 
   const activityValues = Object.values(activities).flat();
 
-  const foundActivity = activityValues.find((obj: any) => obj.id === id);
+  const foundActivity = activityValues.find(
+    (activity: any) => activity.id === id
+  );
 
   return (
     <>

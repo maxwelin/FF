@@ -20,7 +20,7 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     <div className={styles.container}>
       <Link to={`/book/${id}`} className={styles.link}>
         <div className={styles.imgContainer}>
-          <img src={img} alt="" loading="lazy" />
+          <img src={img} alt={h2 + " image"} loading="lazy" />
         </div>
         <div className={styles.textContainer}>
           <h2>{h2}</h2>

@@ -49,12 +49,16 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   });
 
   useEffect(() => {
-    fetch("/mockData/mockData.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setActivities(data);
-        setBlogItems(data.blogItems);
-      });
+    try {
+      fetch("/mockData/mockData.json")
+        .then((response) => response.json())
+        .then((data) => {
+          setActivities(data);
+          setBlogItems(data.blogItems);
+        });
+    } catch (error) {
+      console.error("Error fetching data ", error);
+    }
   }, []);
 
   return (

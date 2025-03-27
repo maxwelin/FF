@@ -6,6 +6,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   margin-bottom: 140px;
+  align-items: center;
 }
 
 .container > h2 {
@@ -17,8 +18,8 @@
 
 .container > p {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  margin-top: -30px;
   text-align: center;
+  margin-top: 8px;
 }
 
 .container > p > a {
