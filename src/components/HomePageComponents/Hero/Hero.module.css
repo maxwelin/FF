@@ -28,23 +28,29 @@
 .heroText {
   font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 60px;
-  grid-row-start: 4;
-  grid-column-start: 2;
-  grid-column-end: 9;
   color: white;
   margin-top: 0;
   outline: 1px black;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   text-wrap: pretty;
+  @media only screen and (max-width: 1200px) {
+    font-size: 48px;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 42px;
+  }
 }
 
 .textButtonContainer > p {
   font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
   color: white;
-  font-size: 30px;
-  grid-row-start: 6;
-  grid-column-start: 2;
-  grid-column-end: 9;
+  font-size: 24px;
+  @media only screen and (max-width: 1200px) {
+    font-size: 24px;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 20px;
+  }
 }
 
 .cta {
@@ -66,7 +72,7 @@
   border-radius: 50px;
   cursor: pointer;
   &:hover {
-    background-color: #0d80a5;
+    background-color: #109ac6;
     color: #f8f8f8;
     transition: 0.2s ease;
   }
@@ -74,6 +80,9 @@
     transform: rotate(90deg);
     color: #f8f8f8;
     transition: 0.2s ease;
+  }
+  @media only screen and (max-width: 800px) {
+    width: 400px;
   }
 }
 

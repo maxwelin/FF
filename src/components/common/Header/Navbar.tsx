@@ -21,7 +21,13 @@ const NavItem = ({ link, route }: Props) => {
 };
 
 const navbarItems = ["Klättring", "Kajak", "Snöskovandring", "Blogg", "Om oss"];
-const navbarRoutes = ["/climbing", "/kayak", "/snowshoes", "/blog", "/about"];
+const navbarRoutes = [
+  "/activity/climbing",
+  "/activity/kayak",
+  "/activity/snowshoes",
+  "/blog",
+  "/about",
+];
 
 const Nav = () => {
   return (

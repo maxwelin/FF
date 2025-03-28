@@ -1,0 +1,82 @@
+.container {
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 140px;
+  align-items: center;
+}
+
+.container > h2 {
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  margin-top: 0;
+  text-align: center;
+  @media only screen and (max-width: 1200px) {
+    font-size: 42px;
+  }
+  @media only screen and (max-width: 800px) {
+    font-size: 38px;
+  }
+}
+
+.container > p {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.container > p > a {
+  font-style: italic;
+  font-weight: 600;
+  text-decoration: underline;
+  color: #0d80a5;
+}
+
+.cardContainer {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  gap: 30px;
+}
+
+.cta {
+  text-decoration: none;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 40px;
+  background-color: #0d80a5;
+  color: #f8f8f8;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  height: 55px;
+  width: 400px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  align-self: center;
+  transition: 0.2s ease;
+  &:hover {
+    background-color: #109ac6;
+  }
+  &:hover .chevron {
+    transform: translateX(15px);
+  }
+  @media only screen and (max-width: 800px) {
+    width: 360px;
+  }
+}
+
+.chevron {
+  transform: translateX(0);
+  transition: 0.2s ease;
+  position: absolute;
+  right: 30px;
+}

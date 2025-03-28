@@ -1,14 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "./components/Pages/HomePage.tsx";
-import ClimbingPage from "./components/Pages/ClimbingPage.tsx";
-import KayakPage from "./components/Pages/KayakPage.tsx";
-import SnowshoesPage from "./components/Pages/SnowshoesPage.tsx";
 import NotFoundPage from "./components/Pages/NotFoundPage.tsx";
 import Header from "./components/common/Header/Header.tsx";
 import Footer from "./components/common/Footer/Footer.tsx";
 import AboutPage from "./components/Pages/AboutPage.tsx";
 import BlogPage from "./components/Pages/BlogPage.tsx";
-import Book from "./components/Pages/Book.tsx";
+import ActivityPage from "./components/Pages/ActivityPage.tsx";
+import Booking from "./components/Pages/Booking.tsx";
 
 export const router = createBrowserRouter([
   {
@@ -23,31 +21,11 @@ export const router = createBrowserRouter([
     errorElement: <NotFoundPage />,
   },
   {
-    path: "/climbing",
+    path: "/activity/:id",
     element: (
       <>
         <Header />
-        <ClimbingPage />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "/kayak",
-    element: (
-      <>
-        <Header />
-        <KayakPage />
-        <Footer />
-      </>
-    ),
-  },
-  {
-    path: "/snowshoes",
-    element: (
-      <>
-        <Header />
-        <SnowshoesPage />
+        <ActivityPage />
         <Footer />
       </>
     ),
@@ -73,11 +51,11 @@ export const router = createBrowserRouter([
     ),
   },
   {
-    path: "/book/:id",
+    path: "/booking/:id",
     element: (
       <>
         <Header />
-        <Book />
+        <Booking />
         <Footer />
       </>
     ),

@@ -1,5 +1,11 @@
 {
-  "climbing": [
+  "climbing": {
+    "img": "/assets/climbingHero.png",
+    "h1": "Klättringsupplevelser",
+    "h2": "Utforska naturen medan du utmanar dig själv! Vi erbjuder både bouldering och repklättring.",
+    "h3": "Funderar du på vilken klättring som passar dig? Kolla in våran blogg - Läs mer"
+  },
+  "climbing_activities": [
     {
       "id": "1",
       "img": "/assets/topprep.png",
@@ -74,7 +80,13 @@
       "category": "climbing"
     }
   ],
-  "kayak": [
+  "kayak": {
+    "img": "/assets/kayakHero.png",
+    "h1": "Kajakupplevelser",
+    "h2": "Koppla av på havet eller jaga adrenalin i forsen? Vi har något som passar dig.",
+    "h3": "Vill du veta mer om alternativen? Ta en titt på vår blogg här - Läs mer"
+  },
+  "kayak_activities": [
     {
       "id": "5",
       "img": "/assets/havskajak.png",
@@ -147,7 +159,13 @@
       "category": "kayak"
     }
   ],
-  "snowshoes": [
+  "snowshoes": {
+    "img": "/assets/snowshoesHero.png",
+    "h1": "Snöskovandring",
+    "h2": "Upplev det svenska vinterlandskapet. Vi erbjuder både klassisk snövandring och guidade vinteräventyr.",
+    "h3": "Allt du behöver veta om våra vinteräventyr hittar du här – Läs mer"
+  },
+  "snowshoes_activities": [
     {
       "id": "9",
       "img": "/assets/bergGrupp.png",
