@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./ActivityCard.module.css";
 import { Star } from "lucide-react";
+import { useState } from "react";
 
 interface Props {
   id: string;
@@ -12,6 +13,12 @@ interface Props {
 }
 
 const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
   const isEven = (rating: number): boolean => {
     return rating % 1 == 0;
   };
@@ -20,7 +27,13 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     <div className={styles.container}>
       <Link to={`/booking/${id}`} className={styles.link}>
         <div className={styles.imgContainer}>
-          <img src={img} alt={h2 + " image"} loading="lazy" />
+          <img
+            src={img}
+            alt={h2 + " image"}
+            loading="lazy"
+            onLoad={handleImageLoad}
+          />
+          {isLoading && <div className={styles.spinner}></div>}
         </div>
         <div className={styles.textContainer}>
           <h2>{h2}</h2>

@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { ActivityContext } from "../../Providers/ActivityContext";
 import styles from "./TestimonialBanner.module.css";
 import { Star } from "lucide-react";
 
@@ -9,9 +11,20 @@ interface Props {
 }
 
 const Testimonial = ({ img, name, text }: Props) => {
+  const { testimonialRef }: any = useContext(ActivityContext);
+
+  const handleClick = () => {
+    if (testimonialRef.current) {
+      testimonialRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.container} onClick={handleClick}>
         <img src={img} alt="Portrait photo" />
         <div className={styles.h2Container}>
           <h2>{name}</h2>

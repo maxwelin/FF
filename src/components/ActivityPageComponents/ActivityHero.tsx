@@ -6,7 +6,7 @@ const ActivityHero = ({ activity }: any) => {
   return (
     <>
       <div className={styles.imgContainer}>
-        <img src={img} alt={`${h1} image`} />
+        <img src={img} alt={`${h1} image`} loading="eager" />
         <div className={styles.heroContainer}>
           <div className={styles.textContainer}>
             <h1>{h1}</h1>

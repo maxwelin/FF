@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useEffect, useState, ReactNode, useRef } from "react";
 
 interface ActivityObject {
   id: string;
@@ -27,6 +27,8 @@ interface ContextProps {
   blogItems: BlogObject[];
   persons: number;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
+  testimonialRef: React.RefObject<null>;
+  climbingSectionRef: React.RefObject<null>;
 }
 
 interface ProviderProps {
@@ -61,9 +63,19 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
     }
   }, []);
 
+  const testimonialRef = useRef(null);
+  const climbingSectionRef = useRef(null);
+
   return (
     <ActivityContext.Provider
-      value={{ activities, blogItems, persons, setPersons }}
+      value={{
+        activities,
+        blogItems,
+        persons,
+        setPersons,
+        testimonialRef,
+        climbingSectionRef,
+      }}
     >
       {children}
     </ActivityContext.Provider>

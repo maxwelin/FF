@@ -1,14 +1,16 @@
 import { useContext, useEffect } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
-import CardContainer from "../common/CardContainer/CardContainer";
+import CardContainer from "../HomePageComponents/CardContainer/CardContainer";
 import Hero from "../HomePageComponents/Hero/Hero";
 import TestimonialBanner from "../HomePageComponents/TestimonalBanner/TestimonialBanner";
 import BlogItem from "../common/BlogItem/BlogItem";
 import Carousell from "../HomePageComponents/Carousell/Carousell";
 import Loading from "../common/Loading/Loading";
+import Testimonials from "../HomePageComponents/Testimonials/Testimonials";
 
 const HomePage = () => {
-  const { activities, blogItems }: any = useContext(ActivityContext);
+  const { activities, blogItems, climbingSectionRef }: any =
+    useContext(ActivityContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,6 +25,7 @@ const HomePage = () => {
         buttonText="Fler klättringsupplevelser"
         link="/activity/climbing"
         activity={activities.climbing_activities}
+        ref={climbingSectionRef}
       ></CardContainer>
       <Carousell />
       <CardContainer
@@ -38,6 +41,7 @@ const HomePage = () => {
         link="/activity/snowshoes"
         activity={activities.snowshoes_activities}
       ></CardContainer>
+      <Testimonials />
     </>
   );
 };
