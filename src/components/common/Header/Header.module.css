@@ -47,6 +47,7 @@
 }
 
 .iconContainer {
+  position: relative;
   display: flex;
   justify-content: space-between;
   width: 140px;
@@ -70,4 +71,17 @@
   text-decoration: underline !important;
   transform: translateY(-8px);
   transition: tranform 0.2s ease;
+}
+
+.searchBar {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: -10px;
+  left: -210px;
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
 }

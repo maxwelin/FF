@@ -8,6 +8,7 @@ import ActivityCard from "../common/ActivityCard/ActivityCard";
 interface ActivityObject {
   id: string;
   img: string;
+  imgLoading: string;
   h2: string;
   h3: string;
   price: string;
@@ -20,14 +21,33 @@ const ActivityPage = () => {
   }, []);
 
   const { id }: any = useParams();
-  const { activities }: any = useContext(ActivityContext);
+  const {
+    climbingActivities,
+    kayakActivities,
+    snowshoesActivities,
+    activities,
+  }: any = useContext(ActivityContext);
+
+  const activitiesID =
+    id === "climbing"
+      ? climbingActivities
+      : id === "kayak"
+      ? kayakActivities
+      : id === "snowshoes"
+      ? snowshoesActivities
+      : [];
+
+  const activityID =
+    id === "climbing" ? 0 : id === "kayak" ? 1 : id === "snowshoes" ? 2 : 0;
+
+  console.log(activities[activityID]);
 
   return (
     <>
-      <ActivityHero activity={activities[id]} />
+      <ActivityHero activity={activities[activityID][0]} />
       <div className={styles.container}>
         <div className={styles.cardContainer}>
-          {activities[`${id}_activities`].map((activity: ActivityObject) => (
+          {activitiesID.map((activity: ActivityObject) => (
             <ActivityCard
               key={activity.id}
               id={activity.id}

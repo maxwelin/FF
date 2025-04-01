@@ -9,12 +9,19 @@ import Loading from "../common/Loading/Loading";
 import Testimonials from "../HomePageComponents/Testimonials/Testimonials";
 
 const HomePage = () => {
-  const { activities, blogItems, climbingSectionRef }: any =
-    useContext(ActivityContext);
+  const {
+    climbingActivities,
+    kayakActivities,
+    snowshoesActivities,
+    blogItems,
+    climbingSectionRef,
+  }: any = useContext(ActivityContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  console.log("homepage", climbingActivities);
 
   return (
     <>
@@ -24,7 +31,7 @@ const HomePage = () => {
         h2="Klättringsupplevelser"
         buttonText="Fler klättringsupplevelser"
         link="/activity/climbing"
-        activity={activities.climbing_activities}
+        activities={climbingActivities}
         ref={climbingSectionRef}
       ></CardContainer>
       <Carousell />
@@ -32,14 +39,14 @@ const HomePage = () => {
         h2="Kajakupplevelser"
         buttonText="Fler kajakupplevelser"
         link="/activity/kayak"
-        activity={activities.kayak_activities}
+        activities={kayakActivities}
       ></CardContainer>
       {blogItems[0] ? <BlogItem blogItem={blogItems[0]} /> : <Loading />}
       <CardContainer
         h2="Snöskovandringar"
         buttonText="Fler snöskovandringar"
         link="/activity/snowshoes"
-        activity={activities.snowshoes_activities}
+        activities={snowshoesActivities}
       ></CardContainer>
       <Testimonials />
     </>

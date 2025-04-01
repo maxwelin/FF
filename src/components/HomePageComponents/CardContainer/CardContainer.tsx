@@ -8,7 +8,7 @@ interface Props {
   h2: string;
   buttonText: string;
   link: string;
-  activity: ActivityObject[];
+  activities: ActivityObject[];
   ref?: React.RefObject<null>;
 }
 
@@ -21,10 +21,11 @@ interface ActivityObject {
   rating: [number, number];
 }
 
-const CardContainer = ({ h2, buttonText, link, activity, ref }: Props) => {
-  if (!activity) {
+const CardContainer = ({ h2, buttonText, link, activities, ref }: Props) => {
+  if (!activities) {
     return <Loading />;
   }
+  console.log("container", activities);
   return (
     <div className={styles.container} ref={ref}>
       <h2>{h2}</h2>
@@ -33,7 +34,7 @@ const CardContainer = ({ h2, buttonText, link, activity, ref }: Props) => {
         <a href="">Titta hit</a>
       </p>
       <div className={styles.cardContainer}>
-        {activity.slice(0, 4).map((obj: ActivityObject) => (
+        {activities.slice(0, 4).map((obj: ActivityObject) => (
           <ActivityCard
             key={obj.id}
             id={obj.id}

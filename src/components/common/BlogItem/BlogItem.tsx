@@ -7,7 +7,7 @@ const BlogItem = ({ blogItem }: any) => {
     <Link to="/blog" className={styles.link}>
       <div className={styles.wrapper}>
         <div className={styles.imgContainer}>
-          <img src={blogItem.img} alt={blogItem.alt} />
+          <img src={blogItem.img} alt={`${blogItem.h2} photo`} />
         </div>
         <div className={styles.textContainer}>
           <h2>{blogItem.h2}</h2>
