@@ -26,6 +26,8 @@ interface ContextProps {
   activities: Object[];
   blogItems: BlogObject[];
   persons: number;
+  searchVal: string;
+  setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
   testimonialRef: React.RefObject<null>;
   climbingSectionRef: React.RefObject<null>;
@@ -39,6 +41,7 @@ const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const [persons, setPersons] = useState(1);
+  const [searchVal, setSearchVal] = useState("");
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<Object[]>([]);
   const [climbingActivities, setClimbingActivities] = useState<
@@ -50,18 +53,6 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   >([]);
 
   useEffect(() => {
-    // try {
-    //   fetch("/config/mockData.json")
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       setActivities(data);
-    //       console.log(data);
-    //       setBlogItems(data.blogItems);
-    //     });
-    // } catch (error) {
-    //   console.error("Error fetching data ", error);
-    // }
-
     const fetchData = async () => {
       try {
         const [
@@ -96,12 +87,6 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         const kayak = kayakSnapshot.docs.map((doc: any) => doc.data());
         const snowshoes = snoeshoesSnapshot.docs.map((doc: any) => doc.data());
 
-        console.log(climbingActivities);
-        console.log(kayakActivities);
-        console.log(snowshoesActivities);
-        console.log(blogItems);
-        console.log(climbing);
-
         const activities = [];
         activities.push(climbing, kayak, snowshoes);
 
@@ -132,6 +117,8 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         activities,
         blogItems,
         persons,
+        searchVal,
+        setSearchVal,
         setPersons,
         testimonialRef,
         climbingSectionRef,

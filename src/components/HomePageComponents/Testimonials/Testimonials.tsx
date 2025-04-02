@@ -11,13 +11,6 @@ const Testimonials = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   };
 
-  if (testimonialRef.current) {
-    testimonialRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-
   return (
     <div className={styles.wrapper} ref={testimonialRef}>
       <h1>Vad tycker våra kunder?</h1>
@@ -52,7 +45,6 @@ const Testimonials = () => {
           size={50}
           color="white"
           strokeWidth={1.5}
-          onClick={handleClick}
           className={styles.button}
         ></CircleArrowUp>
       </div>

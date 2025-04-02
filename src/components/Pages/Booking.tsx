@@ -7,18 +7,28 @@ import Description from "../BookingComponents/Description";
 
 const Booking = () => {
   const { id } = useParams();
-  const { blogItems, activities }: any = useContext(ActivityContext);
+  const {
+    blogItems,
+    climbingActivities,
+    kayakActivities,
+    snowshoesActivities,
+  }: any = useContext(ActivityContext);
+
+  const activities = climbingActivities.concat(
+    kayakActivities,
+    snowshoesActivities
+  );
+  console.log(activities);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  const foundActivity: any = Object.values(activities)
-    .flat()
-    .find((activity: any) => activity.id === id);
+  const foundActivity: any = Object.values(activities).find(
+    (activity: any) => activity.id === id
+  );
 
   const similairActivities = Object.values(activities)
-    .flat()
     .filter(
       (activity: any) =>
         activity.category === foundActivity.category &&
