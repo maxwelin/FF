@@ -21,8 +21,6 @@ const HomePage = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  console.log("homepage", climbingActivities);
-
   return (
     <>
       <Hero />

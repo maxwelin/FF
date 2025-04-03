@@ -81,7 +81,30 @@
   left: -210px;
 }
 
+.searchList {
+  z-index: 100;
+  position: absolute;
+  top: 36px;
+  width: 236px;
+  left: -210px;
+  background-color: #f8f8f8;
+  border: 2px solid black;
+  padding: 0;
+  max-height: 680px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.searchList > li:nth-child(even) {
+  background-color: #fff;
+}
+
 .visible {
   opacity: 1;
   pointer-events: all;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
 }

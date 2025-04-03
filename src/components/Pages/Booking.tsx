@@ -14,10 +14,11 @@ const Booking = () => {
     snowshoesActivities,
   }: any = useContext(ActivityContext);
 
-  const activities = climbingActivities.concat(
-    kayakActivities,
-    snowshoesActivities
-  );
+  const activities = [
+    ...climbingActivities,
+    ...kayakActivities,
+    ...snowshoesActivities,
+  ];
   console.log(activities);
 
   useEffect(() => {
@@ -28,7 +29,7 @@ const Booking = () => {
     (activity: any) => activity.id === id
   );
 
-  const similairActivities = Object.values(activities)
+  const similarActivities = Object.values(activities)
     .filter(
       (activity: any) =>
         activity.category === foundActivity.category &&
@@ -41,7 +42,7 @@ const Booking = () => {
       <Main activity={foundActivity} />
       <Description
         activity={foundActivity}
-        similairActivities={similairActivities}
+        similarActivities={similarActivities}
       />
       <BlogItem blogItem={blogItems[0]} />
     </>

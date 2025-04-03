@@ -1,7 +1,7 @@
 import ActivityCard from "../common/ActivityCard/ActivityCard";
 import styles from "./Main.module.css";
 
-const Description = ({ activity, similairActivities }: any) => {
+const Description = ({ activity, similarActivities }: any) => {
   return (
     <div className={styles.main}>
       <div className={styles.container}>
@@ -26,8 +26,9 @@ const Description = ({ activity, similairActivities }: any) => {
       <div className={styles.container}>
         <h3>Andra liknande upplevelser</h3>
         <div className={styles.similairContainer}>
-          {similairActivities.map((activity: any) => (
+          {similarActivities.map((activity: any) => (
             <ActivityCard
+              key={activity.id}
               id={activity.id}
               img={activity.img}
               h2={activity.h2}

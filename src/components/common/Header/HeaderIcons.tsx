@@ -1,19 +1,67 @@
-import { useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 import { User, Heart, Search } from "lucide-react";
+import { ActivityContext } from "../../Providers/ActivityContext";
+import { Link } from "react-router-dom";
 
 const HeaderIcons = () => {
-  const handleClick = () => {
-    if (searchRef) {
-      searchRef.current.classList.toggle(styles.visible);
-    }
+  const {
+    searchVal,
+    setSearchVal,
+    climbingActivities,
+    kayakActivities,
+    snowshoesActivities,
+  }: any = useContext(ActivityContext);
+
+  const activities = [
+    ...climbingActivities,
+    ...kayakActivities,
+    ...snowshoesActivities,
+  ];
+
+  const [isFocused, setIsFocused] = useState(false);
+  const [searchResult, setSearchResult] = useState(activities);
+
+  const handleClick = (e: React.MouseEvent) => {
+    if (searchRef.current) searchRef.current.classList.toggle(styles.visible);
   };
 
-  const handleChange = () => {
-    console.log("hej");
+  const handleLinkClick = (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      setSearchVal("");
+      if (inputRef.current) inputRef.current.blur();
+    }, 100);
   };
+
+  const handleFocus = () => setIsFocused(true);
+  const handleBlur = () => setIsFocused(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchVal(e.target.value);
+    const filteredActivities = activities.filter((activity) =>
+      activity.h2.toLowerCase().includes(e.target.value.toLowerCase())
+    );
+
+    setSearchResult(filteredActivities);
+    console.log(searchResult);
+  };
+
+  useEffect(() => {
+    const inputElement: any = inputRef.current;
+    if (inputElement) {
+      inputElement.addEventListener("focus", handleFocus);
+      inputElement.addEventListener("blur", handleBlur);
+
+      return () => {
+        inputElement.removeEventListener("focus", handleFocus);
+        inputElement.removeEventListener("blur", handleBlur);
+      };
+    }
+  }, []);
 
   const searchRef = useRef(null);
+  const inputRef = useRef(null);
 
   return (
     <div className={styles.iconContainer}>
@@ -43,12 +91,28 @@ const HeaderIcons = () => {
           </svg>
 
           <input
-            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow"
+            ref={inputRef}
+            value={searchVal}
+            className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 text-sm border border-slate-200 rounded-md pr-3 py-2 transition duration-300 ease"
             placeholder="Sök efter aktivitet"
             onChange={handleChange}
           />
         </div>
       </div>
+      {isFocused && searchVal && (
+        <ul className={styles.searchList}>
+          {searchResult.map((activity) => (
+            <Link
+              key={activity.id}
+              onMouseDown={handleLinkClick}
+              className={styles.link}
+              to={`/booking/${activity.id}`}
+            >
+              <li className="border-0 box-border p-4">{activity.h2}</li>
+            </Link>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

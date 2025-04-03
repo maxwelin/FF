@@ -25,7 +25,6 @@ const CardContainer = ({ h2, buttonText, link, activities, ref }: Props) => {
   if (!activities) {
     return <Loading />;
   }
-  console.log("container", activities);
   return (
     <div className={styles.container} ref={ref}>
       <h2>{h2}</h2>
