@@ -88,15 +88,21 @@
   width: 236px;
   left: -210px;
   background-color: #f8f8f8;
-  border: 2px solid black;
   padding: 0;
   max-height: 680px;
   overflow: hidden;
-  border-radius: 20px;
+  /* border-radius: 30px; */
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
 }
 
-.searchList > li:nth-child(even) {
+.searchList :nth-child(odd) > li {
   background-color: #fff;
+}
+
+.searchListItem:hover {
+  background-color: #109ac6 !important;
+  color: white;
+  transition: all 0.1s ease;
 }
 
 .visible {

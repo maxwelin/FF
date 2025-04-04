@@ -26,6 +26,8 @@ interface ContextProps {
   activities: Object[];
   blogItems: BlogObject[];
   persons: number;
+  favoriteList: string[];
+  setFavoriteList: React.Dispatch<React.SetStateAction<never[]>>;
   searchVal: string;
   setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
@@ -41,6 +43,7 @@ const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const [persons, setPersons] = useState(1);
+  const [favoriteList, setFavoriteList] = useState([]);
   const [searchVal, setSearchVal] = useState("");
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<Object[]>([]);
@@ -103,8 +106,6 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
     fetchData();
   }, []);
 
-  useEffect(() => {}, []); // Den här effekten körs endast en gång när komponenten laddas
-
   const testimonialRef = useRef(null);
   const climbingSectionRef = useRef(null);
 
@@ -117,6 +118,8 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         activities,
         blogItems,
         persons,
+        favoriteList,
+        setFavoriteList,
         searchVal,
         setSearchVal,
         setPersons,

@@ -1,5 +1,5 @@
 import styles from "./Main.module.css";
-import { Check, Star, StarHalf } from "lucide-react";
+import { Check, Heart, Star, StarHalf } from "lucide-react";
 import Form from "./Form";
 import { ReactNode, useContext, useEffect } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
@@ -30,6 +30,9 @@ export const Main = ({ activity }: any) => {
   return (
     <main className={styles.main}>
       <div className={`${styles.imgContainer} ${styles.container}`}>
+        <div className={styles.btnContainer}>
+          <Heart className={styles.btn} />
+        </div>
         <img src={activity.img} alt="" />
       </div>
       <div className={`${styles.textContainer} ${styles.container}`}>
@@ -42,7 +45,7 @@ export const Main = ({ activity }: any) => {
           <h2>{calcPrice(persons, price)} SEK</h2>
         )}
         <div className={styles.review}>
-          {isEven(4.5) ? (
+          {isEven(activity.rating[0]) ? (
             <p>{activity.rating[0]}.0</p>
           ) : (
             <p>{activity.rating[0]}</p>

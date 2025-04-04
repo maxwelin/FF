@@ -180,7 +180,9 @@ label {
 }
 
 .imgContainer {
+  user-select: none;
   border-radius: 30px;
+  position: relative;
 }
 
 .imgContainer > img {
@@ -320,4 +322,30 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dateSelector:hover + .chevronDateSelect {
   transform: rotate(90deg);
+}
+
+.btnContainer {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 30px;
+  height: 45px;
+  width: 45px;
+  background-color: rgba(255, 255, 255, 0.75);
+  z-index: 10;
+  right: 0;
+  top: 0;
+  &:hover .btn {
+    scale: 1.2;
+  }
+  &:active .btn {
+    scale: 0.8;
+  }
+}
+
+.btn {
+  color: #ff3b30;
+  transition: all 0.2s ease;
 }

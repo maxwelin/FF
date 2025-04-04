@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styles from "./ActivityCard.module.css";
-import { Star } from "lucide-react";
+import { Star, Heart } from "lucide-react";
 import { useState } from "react";
 
 interface Props {
@@ -23,8 +23,15 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     return rating % 1 == 0;
   };
 
+  const handleClick = (e) => {
+    console.log(id);
+  };
+
   return (
     <div className={styles.container}>
+      <div className={styles.btnContainer} onClick={handleClick}>
+        <Heart className={styles.btn} />
+      </div>
       <Link to={`/booking/${id}`} className={styles.link}>
         <div className={styles.imgContainer}>
           <img

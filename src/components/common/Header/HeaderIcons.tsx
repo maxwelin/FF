@@ -31,6 +31,7 @@ const HeaderIcons = () => {
     setTimeout(() => {
       setSearchVal("");
       if (inputRef.current) inputRef.current.blur();
+      handleClick();
     }, 100);
   };
 
@@ -99,7 +100,7 @@ const HeaderIcons = () => {
           />
         </div>
       </div>
-      {isFocused && searchVal && (
+      {isFocused && searchVal && searchResult.length > 0 && (
         <ul className={styles.searchList}>
           {searchResult.map((activity) => (
             <Link
@@ -108,7 +109,11 @@ const HeaderIcons = () => {
               className={styles.link}
               to={`/booking/${activity.id}`}
             >
-              <li className="border-0 box-border p-4">{activity.h2}</li>
+              <li
+                className={`border-0 mh-[45px] box-border p-4 ${styles.searchListItem}`}
+              >
+                {activity.h2}
+              </li>
             </Link>
           ))}
         </ul>
