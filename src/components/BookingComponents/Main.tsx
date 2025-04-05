@@ -1,11 +1,12 @@
 import styles from "./Main.module.css";
 import { Check, Heart, Star, StarHalf } from "lucide-react";
 import Form from "./Form";
-import { ReactNode, useContext, useEffect } from "react";
+import { ReactNode, useContext, useEffect, useRef } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
 
 export const Main = ({ activity }: any) => {
-  const { persons, setPersons }: any = useContext(ActivityContext);
+  const { persons, setPersons, favoriteList, setFavoriteList }: any =
+    useContext(ActivityContext);
 
   const isEven = (rating: number): boolean => {
     return rating % 1 == 0;
@@ -25,13 +26,40 @@ export const Main = ({ activity }: any) => {
     }
   };
 
+  const removeFavorite = (i: number) => {
+    setFavoriteList(
+      favoriteList.filter((item: object, index: number) => index !== i)
+    );
+  };
+
+  const toggleFavorite = () => {
+    if (heartRef.current) heartRef.current.classList.toggle(styles.favorited);
+    let alreadyFavorited = false;
+    for (let i = 0; i < favoriteList.length; i++) {
+      const element = favoriteList[i];
+      if (element.id === activity.id) {
+        alreadyFavorited = !alreadyFavorited;
+        removeFavorite(i);
+      }
+    }
+    if (!alreadyFavorited) {
+      setFavoriteList([
+        ...favoriteList,
+        { id: activity.id, name: activity.h2 },
+      ]);
+    }
+    console.log(favoriteList, activity.id);
+  };
+
+  const heartRef = useRef(null);
+
   const greaterThanTwo = persons > 2;
 
   return (
     <main className={styles.main}>
       <div className={`${styles.imgContainer} ${styles.container}`}>
-        <div className={styles.btnContainer}>
-          <Heart className={styles.btn} />
+        <div className={styles.btnContainer} onClick={toggleFavorite}>
+          <Heart className={styles.btn} ref={heartRef} />
         </div>
         <img src={activity.img} alt="" />
       </div>

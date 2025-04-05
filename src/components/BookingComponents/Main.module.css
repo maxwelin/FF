@@ -349,3 +349,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   color: #ff3b30;
   transition: all 0.2s ease;
 }
+
+.favorited {
+  fill: #ff3b30;
+}

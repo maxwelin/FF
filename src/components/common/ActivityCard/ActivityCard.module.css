@@ -141,3 +141,7 @@
   color: #ff3b30;
   transition: all 0.2s ease;
 }
+
+.favorited {
+  fill: #ff3b30;
+}

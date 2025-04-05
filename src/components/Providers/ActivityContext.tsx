@@ -26,13 +26,15 @@ interface ContextProps {
   activities: Object[];
   blogItems: BlogObject[];
   persons: number;
-  favoriteList: string[];
-  setFavoriteList: React.Dispatch<React.SetStateAction<never[]>>;
+  favoriteList: Object[];
+  setFavoriteList: React.Dispatch<React.SetStateAction<Object>>;
   searchVal: string;
   setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
   testimonialRef: React.RefObject<null>;
   climbingSectionRef: React.RefObject<null>;
+  searchRef: React.RefObject<null>;
+  handleSearchBtnClick: () => void;
 }
 
 interface ProviderProps {
@@ -43,7 +45,7 @@ const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const [persons, setPersons] = useState(1);
-  const [favoriteList, setFavoriteList] = useState([]);
+  const [favoriteList, setFavoriteList] = useState<Object[]>([]);
   const [searchVal, setSearchVal] = useState("");
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<Object[]>([]);
@@ -106,8 +108,13 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
     fetchData();
   }, []);
 
+  const handleSearchBtnClick = () => {
+    searchRef.current.classList.toggle(styles.visible);
+  };
+
   const testimonialRef = useRef(null);
   const climbingSectionRef = useRef(null);
+  const searchRef = useRef(null);
 
   return (
     <ActivityContext.Provider
@@ -125,6 +132,8 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         setPersons,
         testimonialRef,
         climbingSectionRef,
+        searchRef,
+        handleSearchBtnClick,
       }}
     >
       {children}
