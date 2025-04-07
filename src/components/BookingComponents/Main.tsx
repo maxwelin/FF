@@ -26,6 +26,15 @@ export const Main = ({ activity }: any) => {
     }
   };
 
+  const isFavorited = () => {
+    let isFavorited = false;
+    if (favoriteList)
+      for (let i = 0; i < favoriteList.length; i++) {
+        if (favoriteList[i].id === activity.id) isFavorited = true;
+      }
+    return isFavorited;
+  };
+
   const removeFavorite = (i: number) => {
     setFavoriteList(
       favoriteList.filter((item: object, index: number) => index !== i)
@@ -48,7 +57,6 @@ export const Main = ({ activity }: any) => {
         { id: activity.id, name: activity.h2 },
       ]);
     }
-    console.log(favoriteList, activity.id);
   };
 
   const heartRef = useRef(null);
@@ -59,7 +67,14 @@ export const Main = ({ activity }: any) => {
     <main className={styles.main}>
       <div className={`${styles.imgContainer} ${styles.container}`}>
         <div className={styles.btnContainer} onClick={toggleFavorite}>
-          <Heart className={styles.btn} ref={heartRef} />
+          {isFavorited() === false ? (
+            <Heart className={styles.btn} ref={heartRef} />
+          ) : (
+            <Heart
+              className={`${styles.btn} ${styles.favorited}`}
+              ref={heartRef}
+            />
+          )}
         </div>
         <img src={activity.img} alt="" />
       </div>

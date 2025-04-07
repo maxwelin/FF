@@ -19,7 +19,6 @@ const Booking = () => {
     ...kayakActivities,
     ...snowshoesActivities,
   ];
-  console.log(activities);
 
   useEffect(() => {
     window.scrollTo(0, 0);

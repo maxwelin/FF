@@ -26,6 +26,15 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     return rating % 1 == 0;
   };
 
+  const isFavorited = () => {
+    let isFavorited = false;
+    if (favoriteList)
+      for (let i = 0; i < favoriteList.length; i++) {
+        if (favoriteList[i].id === id) isFavorited = true;
+      }
+    return isFavorited;
+  };
+
   const removeFavorite = (i: number) => {
     setFavoriteList(
       favoriteList.filter((item: object, index: number) => index !== i)
@@ -33,7 +42,6 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
   };
 
   const toggleFavorite = () => {
-    if (heartRef.current) heartRef.current.classList.toggle(styles.favorited);
     let alreadyFavorited = false;
     for (let i = 0; i < favoriteList.length; i++) {
       const element = favoriteList[i];
@@ -45,7 +53,6 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     if (!alreadyFavorited) {
       setFavoriteList([...favoriteList, { id: id, name: h2 }]);
     }
-    console.log(favoriteList, id);
   };
 
   const heartRef = useRef(null);
@@ -53,7 +60,14 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
   return (
     <div className={styles.container}>
       <div className={styles.btnContainer} onClick={toggleFavorite}>
-        <Heart className={styles.btn} ref={heartRef} />
+        {isFavorited() === false ? (
+          <Heart className={styles.btn} ref={heartRef} />
+        ) : (
+          <Heart
+            className={`${styles.btn} ${styles.favorited}`}
+            ref={heartRef}
+          />
+        )}
       </div>
       <Link to={`/booking/${id}`} className={styles.link}>
         <div className={styles.imgContainer}>

@@ -40,8 +40,6 @@ const ActivityPage = () => {
   const activityID =
     id === "climbing" ? 0 : id === "kayak" ? 1 : id === "snowshoes" ? 2 : 0;
 
-  console.log(activities[activityID]);
-
   return (
     <>
       <ActivityHero activity={activities[activityID][0]} />

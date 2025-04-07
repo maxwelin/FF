@@ -27,7 +27,7 @@ interface ContextProps {
   blogItems: BlogObject[];
   persons: number;
   favoriteList: Object[];
-  setFavoriteList: React.Dispatch<React.SetStateAction<Object>>;
+  setFavoriteList: React.Dispatch<React.SetStateAction<any>>;
   searchVal: string;
   setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
