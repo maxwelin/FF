@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styles from "./ActivityCard.module.css";
-import { Star, Heart } from "lucide-react";
-import { useContext, useRef, useState } from "react";
-import { ActivityContext } from "../../Providers/ActivityContext";
+import { Star } from "lucide-react";
+import { useState } from "react";
+import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 interface Props {
   id: string;
@@ -14,8 +14,6 @@ interface Props {
 }
 
 const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
-  const { favoriteList, setFavoriteList } = useContext(ActivityContext);
-
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
@@ -26,73 +24,35 @@ const ActivityCard = ({ id, img, h2, h3, price, rating }: Props) => {
     return rating % 1 == 0;
   };
 
-  const isFavorited = () => {
-    let isFavorited = false;
-    if (favoriteList)
-      for (let i = 0; i < favoriteList.length; i++) {
-        if (favoriteList[i].id === id) isFavorited = true;
-      }
-    return isFavorited;
-  };
-
-  const removeFavorite = (i: number) => {
-    setFavoriteList(
-      favoriteList.filter((item: object, index: number) => index !== i)
-    );
-  };
-
-  const toggleFavorite = () => {
-    let alreadyFavorited = false;
-    for (let i = 0; i < favoriteList.length; i++) {
-      const element = favoriteList[i];
-      if (element.id === id) {
-        alreadyFavorited = !alreadyFavorited;
-        removeFavorite(i);
-      }
-    }
-    if (!alreadyFavorited) {
-      setFavoriteList([...favoriteList, { id: id, name: h2 }]);
-    }
-  };
-
-  const heartRef = useRef(null);
-
   return (
-    <div className={styles.container}>
-      <div className={styles.btnContainer} onClick={toggleFavorite}>
-        {isFavorited() === false ? (
-          <Heart className={styles.btn} ref={heartRef} />
-        ) : (
-          <Heart
-            className={`${styles.btn} ${styles.favorited}`}
-            ref={heartRef}
-          />
-        )}
-      </div>
-      <Link to={`/booking/${id}`} className={styles.link}>
-        <div className={styles.imgContainer}>
-          <img
-            src={img}
-            alt={h2 + " image"}
-            loading="lazy"
-            onLoad={handleImageLoad}
-          />
-          {isLoading && <div className={styles.spinner}></div>}
-        </div>
-        <div className={styles.textContainer}>
-          <h2>{h2}</h2>
-          <p>{h3}</p>
-          <div className={styles.priceReviewContainer}>
-            <p className={styles.price}>{price} SEK</p>
-            <div className={styles.review}>
-              {isEven(rating[0]) ? <p>{rating[0]}.0</p> : <p>{rating[0]}</p>}
-              <Star size={20} color="#FFD700" fill="#FFD700" />
-              <p className={styles.reviewers}>({rating[1]})</p>
+    <>
+      <div className={styles.container}>
+        <FavoriteButton h2={h2} id={id} />
+        <Link to={`/booking/${id}`} className={styles.link}>
+          <div className={styles.imgContainer}>
+            <img
+              src={img}
+              alt={h2 + " image"}
+              loading="lazy"
+              onLoad={handleImageLoad}
+            />
+            {isLoading && <div className={styles.spinner}></div>}
+          </div>
+          <div className={styles.textContainer}>
+            <h2>{h2}</h2>
+            <p>{h3}</p>
+            <div className={styles.priceReviewContainer}>
+              <p className={styles.price}>{price} SEK</p>
+              <div className={styles.review}>
+                {isEven(rating[0]) ? <p>{rating[0]}.0</p> : <p>{rating[0]}</p>}
+                <Star size={20} color="#FFD700" fill="#FFD700" />
+                <p className={styles.reviewers}>({rating[1]})</p>
+              </div>
             </div>
           </div>
-        </div>
-      </Link>
-    </div>
+        </Link>
+      </div>
+    </>
   );
 };
 

@@ -9,7 +9,6 @@ const HeaderIcons = () => {
   const { favoriteList }: any = useContext(ActivityContext);
 
   const handleClick = () => {
-    console.log(favoriteList[0]);
     if (favoriteList.length < 1) {
       return;
     } else favoriteListRef.current;

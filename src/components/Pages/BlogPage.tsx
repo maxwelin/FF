@@ -1,4 +1,10 @@
+import Toast from "../common/Toast";
+
 const BlogPage = () => {
-  return <div>BlogPage</div>;
+  return (
+    <>
+      <Toast />
+    </>
+  );
 };
 export default BlogPage;

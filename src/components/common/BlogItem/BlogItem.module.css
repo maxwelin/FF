@@ -62,6 +62,11 @@
   font-weight: 600;
   margin-top: 12px;
   margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .textContainer > h3 {
@@ -69,12 +74,20 @@
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .textContainer > p {
   font-family: "Open Sans", "Helvetica Neue", sans-serif;
-  height: 56px;
+  height: 54px;
   font-size: 16px;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
