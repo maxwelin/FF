@@ -20,6 +20,19 @@ const Booking = () => {
     ...snowshoesActivities,
   ];
 
+  const setBlogId = (id: string | undefined) => {
+    const num = Number(id);
+    if (num > 0 && num < 9) {
+      return 1;
+    } else if (num > 8 && num < 17) {
+      return 2;
+    } else {
+      return 3;
+    }
+  };
+
+  console.log(typeof id);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [id]);
@@ -43,7 +56,7 @@ const Booking = () => {
         activity={foundActivity}
         similarActivities={similarActivities}
       />
-      <BlogItem blogItem={blogItems[0]} />
+      <BlogItem blogItem={blogItems[setBlogId(id)]} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, ChevronUp } from "lucide-react";
 import styles from "./Main.module.css";
 import { useContext } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
@@ -47,7 +47,7 @@ const Form = () => {
             name="date"
             className={`${styles.inputHalfSize} ${styles.dateSelector}`}
           ></input>
-          <ChevronRight className={styles.chevronDateSelect} size={28} />
+          <ChevronUp className={styles.chevronDateSelect} size={28} />
         </div>
         <div className={styles.inputWrapper}>
           <select
@@ -61,7 +61,7 @@ const Form = () => {
             <option value="4">4 vuxna</option>
             <option value="5">5 vuxna</option>
           </select>
-          <ChevronRight className={styles.chevronPersonSelect} size={28} />
+          <ChevronUp className={styles.chevronPersonSelect} size={28} />
         </div>
       </div>
       <button type="button" className={styles.cta}>

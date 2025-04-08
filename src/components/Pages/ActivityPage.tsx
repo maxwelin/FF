@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 import { ActivityContext } from "../Providers/ActivityContext";
 import ActivityHero from "../ActivityPageComponents/ActivityHero";
 import ActivityCard from "../common/ActivityCard/ActivityCard";
+import BlogItem from "../common/BlogItem/BlogItem";
+import ActivityPageButtons from "../ActivityPageComponents/ActivityPageButtons";
 
 interface ActivityObject {
   id: string;
@@ -26,6 +28,7 @@ const ActivityPage = () => {
     kayakActivities,
     snowshoesActivities,
     activities,
+    blogItems,
   }: any = useContext(ActivityContext);
 
   const activitiesID =
@@ -40,9 +43,13 @@ const ActivityPage = () => {
   const activityID =
     id === "climbing" ? 0 : id === "kayak" ? 1 : id === "snowshoes" ? 2 : 0;
 
+  const blogID =
+    id === "climbing" ? 1 : id === "kayak" ? 2 : id === "snowshoes" ? 3 : 0;
+
   return (
     <>
       <ActivityHero activity={activities[activityID][0]} />
+      <ActivityPageButtons activities={activitiesID} />
       <div className={styles.container}>
         <div className={styles.cardContainer}>
           {activitiesID.map((activity: ActivityObject) => (
@@ -58,6 +65,7 @@ const ActivityPage = () => {
           ))}
         </div>
       </div>
+      <BlogItem blogItem={blogItems[blogID]} />
     </>
   );
 };
