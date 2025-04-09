@@ -5,6 +5,7 @@ import { ActivityContext } from "../Providers/ActivityContext";
 import { Main } from "../BookingComponents/Main";
 import Description from "../BookingComponents/Description";
 import Loading from "../common/Loading/Loading";
+import Reviews from "../BookingComponents/Reviews";
 
 const Booking = () => {
   const { id } = useParams();
@@ -31,8 +32,6 @@ const Booking = () => {
       return 3;
     }
   };
-
-  console.log(typeof id);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -61,6 +60,7 @@ const Booking = () => {
         activity={foundActivity}
         similarActivities={similarActivities}
       />
+      <Reviews activity={foundActivity} />
       <BlogItem blogItem={blogItems[setBlogId(id)]} />
     </>
   );

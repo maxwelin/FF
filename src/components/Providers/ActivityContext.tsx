@@ -25,17 +25,23 @@ interface ContextProps {
   kayakActivities: ActivityObject[];
   snowshoesActivities: ActivityObject[];
   activities: Object[];
+  sortedClimbingActivities: Object[];
+  sortedKayakActivities: Object[];
+  sortedSnowshoesActivities: Object[];
   blogItems: BlogObject[];
   persons: number;
   favoriteList: Object[];
   setFavoriteList: React.Dispatch<React.SetStateAction<any>>;
+  setSortedClimbingActivities: React.Dispatch<React.SetStateAction<any>>;
+  setSortedKayakActivities: React.Dispatch<React.SetStateAction<any>>;
+  setSortedSnowshoesActivities: React.Dispatch<React.SetStateAction<any>>;
   searchVal: string;
   setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
   testimonialRef: React.RefObject<null>;
   climbingSectionRef: React.RefObject<null>;
   searchRef: React.RefObject<null>;
-  selectRef: React.RefObject<null>;
+  reviewRef: React.RefObject<null>;
   handleSearchBtnClick: () => void;
 }
 
@@ -52,6 +58,12 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const [searchVal, setSearchVal] = useState("");
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<Object[]>([]);
+  const [sortedClimbingActivities, setSortedClimbingActivities] = useState([]);
+  const [sortedKayakActivities, setSortedKayakActivities] = useState([]);
+  const [sortedSnowshoesActivities, setSortedSnowshoesActivities] = useState(
+    []
+  );
+  useState<Object[]>(activities);
   const [climbingActivities, setClimbingActivities] = useState<
     ActivityObject[]
   >([]);
@@ -162,7 +174,7 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const testimonialRef = useRef(null);
   const climbingSectionRef = useRef(null);
   const searchRef = useRef(null);
-  const selectRef = useRef(null);
+  const reviewRef = useRef(null);
 
   return (
     <ActivityContext.Provider
@@ -172,6 +184,12 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         kayakActivities,
         snowshoesActivities,
         activities,
+        sortedClimbingActivities,
+        sortedKayakActivities,
+        sortedSnowshoesActivities,
+        setSortedClimbingActivities,
+        setSortedKayakActivities,
+        setSortedSnowshoesActivities,
         blogItems,
         persons,
         favoriteList,
@@ -182,7 +200,7 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         testimonialRef,
         climbingSectionRef,
         searchRef,
-        selectRef,
+        reviewRef,
         handleSearchBtnClick,
       }}
     >

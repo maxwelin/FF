@@ -1,5 +1,5 @@
 import ActivityCard from "../common/ActivityCard/ActivityCard";
-import styles from "./Main.module.css";
+import styles from "./Booking.module.css";
 
 const Description = ({ activity, similarActivities }: any) => {
   return (

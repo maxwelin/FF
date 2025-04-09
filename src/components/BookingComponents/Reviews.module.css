@@ -1,0 +1,39 @@
+h3 {
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: baseline;
+}
+
+h4 {
+  margin: 0;
+  padding: 0;
+}
+
+.gray {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.name {
+  max-height: 36px;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  margin-left: 6px;
+  overflow: hidden;
+}
+
+.date {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0;
+  padding: 0;
+}

@@ -79,9 +79,10 @@
 }
 
 .searchList {
+  border: 2px solid gray;
   z-index: 100;
   position: absolute;
-  top: 38px;
+  top: 30px;
   left: -210px;
   max-height: 680px;
 }
@@ -140,9 +141,10 @@
 }
 
 .favoriteList {
+  border: 2px solid gray;
   cursor: pointer;
   z-index: 1;
   position: absolute;
-  top: 38px;
+  top: 30px;
   opacity: 0;
 }

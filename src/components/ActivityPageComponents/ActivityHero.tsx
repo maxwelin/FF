@@ -16,6 +16,16 @@ const ActivityHero = ({ activity }: any) => {
     console.log("loading complete");
   };
 
+  useEffect(() => {
+    const imgElement = new Image();
+    imgElement.src = img;
+
+    if (imgElement.complete) {
+      setLoading(false);
+      console.log("image already loaded from cache");
+    }
+  }, [img]);
+
   return (
     <>
       <div className={styles.imgContainer}>

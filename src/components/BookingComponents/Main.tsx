@@ -1,4 +1,4 @@
-import styles from "./Main.module.css";
+import styles from "./Booking.module.css";
 import { Check, Star, StarHalf } from "lucide-react";
 import Form from "./Form";
 import { ReactNode, useContext, useEffect } from "react";
@@ -6,7 +6,7 @@ import { ActivityContext } from "../Providers/ActivityContext";
 import FavoriteButton from "../common/FavoriteButton/FavoriteButton";
 
 export const Main = ({ activity }: any) => {
-  const { persons, setPersons }: any = useContext(ActivityContext);
+  const { persons, setPersons, reviewRef }: any = useContext(ActivityContext);
 
   const isEven = (rating: number): boolean => {
     return rating % 1 == 0;
@@ -23,6 +23,15 @@ export const Main = ({ activity }: any) => {
       return Math.ceil(price * persons * 0.9);
     } else {
       return Math.ceil(price * persons);
+    }
+  };
+
+  const handleClick = () => {
+    if (reviewRef.current) {
+      reviewRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
     }
   };
 
@@ -43,7 +52,7 @@ export const Main = ({ activity }: any) => {
         ) : (
           <h2>{calcPrice(persons, price)} SEK</h2>
         )}
-        <div className={styles.review}>
+        <div className={styles.review} onClick={handleClick}>
           {isEven(activity.rating[0]) ? (
             <p>{activity.rating[0]}.0</p>
           ) : (

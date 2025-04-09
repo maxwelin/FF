@@ -13,13 +13,29 @@ interface Activity {
   rating: [number, number];
 }
 
-const ActivityPageButtons = ({ activities }: any) => {
-  const { selectRef }: any = useContext(ActivityContext);
+const ActivityPageButtons = ({ activities, id }: any) => {
+  const {
+    selectRef,
+    setSortedClimbingActivities,
+    setSortedKayakActivities,
+    setSortedSnowshoesActivities,
+  }: any = useContext(ActivityContext);
+
+  const setSortedActivityBasedOnId =
+    id === "climbing"
+      ? setSortedClimbingActivities
+      : id === "kayak"
+      ? setSortedKayakActivities
+      : id === "snowshoes"
+      ? setSortedSnowshoesActivities
+      : [];
 
   const handleChange = (e) => {
+    const sortedActivities = [...activities];
+
     switch (e.target.value) {
       case "1":
-        activities.sort((a: Activity, b: Activity) => {
+        sortedActivities.sort((a: Activity, b: Activity) => {
           const firstLetterA = a.h2.charAt(0).toLowerCase();
           const firstLetterB = b.h2.charAt(0).toLowerCase();
 
@@ -30,7 +46,7 @@ const ActivityPageButtons = ({ activities }: any) => {
         break;
 
       case "2":
-        activities.sort((a: Activity, b: Activity) => {
+        sortedActivities.sort((a: Activity, b: Activity) => {
           const firstLetterA = a.h2.charAt(0).toLowerCase();
           const firstLetterB = b.h2.charAt(0).toLowerCase();
 
@@ -41,17 +57,33 @@ const ActivityPageButtons = ({ activities }: any) => {
         break;
 
       case "3":
-        activities.sort((a: Activity, b: Activity) => {
-          if (a.price < b.price) return -1;
-          if (a.price > b.price) return 1;
+        sortedActivities.sort((a: Activity, b: Activity) => {
+          if (Number(a.price) < Number(b.price)) return -1;
+          if (Number(a.price) > Number(b.price)) return 1;
           return 0;
         });
         break;
 
       case "4":
-        activities.sort((a: Activity, b: Activity) => {
-          if (b.price < a.price) return -1;
-          if (b.price > a.price) return 1;
+        sortedActivities.sort((a: Activity, b: Activity) => {
+          if (Number(b.price) < Number(a.price)) return -1;
+          if (Number(b.price) > Number(a.price)) return 1;
+          return 0;
+        });
+        break;
+
+      case "5":
+        sortedActivities.sort((a: Activity, b: Activity) => {
+          if (Number(a.rating[0]) < Number(b.rating[0])) return -1;
+          if (Number(a.rating[0]) > Number(b.rating[0])) return 1;
+          return 0;
+        });
+        break;
+
+      case "6":
+        sortedActivities.sort((a: Activity, b: Activity) => {
+          if (Number(b.rating[0]) < Number(a.rating[0])) return -1;
+          if (Number(b.rating[0]) > Number(a.rating[0])) return 1;
           return 0;
         });
         break;
@@ -59,6 +91,7 @@ const ActivityPageButtons = ({ activities }: any) => {
       default:
         break;
     }
+    setSortedActivityBasedOnId(sortedActivities);
   };
 
   return (
@@ -72,13 +105,11 @@ const ActivityPageButtons = ({ activities }: any) => {
           <option value="2">Z-A</option>
           <option value="3">Pris stigande</option>
           <option value="4">Pris fallande</option>
+          <option value="5">Betyg stigande</option>
+          <option value="6">Betyg fallande</option>
         </select>
         <ChevronUp className={styles.chevron} size={28} />
       </div>
-      <button className={styles.button}>
-        Filtrera
-        <ChevronUp className={styles.chevron} size={28} />
-      </button>
     </div>
   );
 };

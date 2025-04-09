@@ -25,6 +25,9 @@ const ActivityPage = () => {
     kayakActivities,
     snowshoesActivities,
     activities,
+    sortedClimbingActivities,
+    sortedKayakActivities,
+    sortedSnowshoesActivities,
     blogItems,
   }: any = useContext(ActivityContext);
 
@@ -39,6 +42,15 @@ const ActivityPage = () => {
       ? kayakActivities
       : id === "snowshoes"
       ? snowshoesActivities
+      : [];
+
+  const sortedActivityBasedOnId =
+    id === "climbing"
+      ? sortedClimbingActivities
+      : id === "kayak"
+      ? sortedKayakActivities
+      : id === "snowshoes"
+      ? sortedSnowshoesActivities
       : [];
 
   const activityID =
@@ -56,20 +68,32 @@ const ActivityPage = () => {
   return (
     <>
       <ActivityHero activity={activities[activityID][0]} />
-      <ActivityPageButtons activities={activitiesID} />
+      <ActivityPageButtons activities={activitiesID} id={id} />
       <div className={styles.container}>
         <div className={styles.cardContainer}>
-          {activitiesID.map((activity: ActivityObject) => (
-            <ActivityCard
-              key={activity.id}
-              id={activity.id}
-              img={activity.img}
-              h2={activity.h2}
-              h3={activity.h3}
-              price={activity.price}
-              rating={activity.rating}
-            />
-          ))}
+          {sortedActivityBasedOnId.length
+            ? sortedActivityBasedOnId.map((activity: ActivityObject) => (
+                <ActivityCard
+                  key={activity.id}
+                  id={activity.id}
+                  img={activity.img}
+                  h2={activity.h2}
+                  h3={activity.h3}
+                  price={activity.price}
+                  rating={activity.rating}
+                />
+              ))
+            : activitiesID.map((activity: ActivityObject) => (
+                <ActivityCard
+                  key={activity.id}
+                  id={activity.id}
+                  img={activity.img}
+                  h2={activity.h2}
+                  h3={activity.h3}
+                  price={activity.price}
+                  rating={activity.rating}
+                />
+              ))}
         </div>
       </div>
       <BlogItem blogItem={blogItems[blogID]} />

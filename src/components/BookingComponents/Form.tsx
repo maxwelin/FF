@@ -1,5 +1,5 @@
 import { ChevronRight, ChevronUp } from "lucide-react";
-import styles from "./Main.module.css";
+import styles from "./Booking.module.css";
 import { useContext } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
 
