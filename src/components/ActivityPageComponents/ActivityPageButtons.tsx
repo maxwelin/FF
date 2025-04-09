@@ -1,5 +1,7 @@
 import { ChevronUp } from "lucide-react";
 import styles from "./ActivityPage.module.css";
+import { useContext } from "react";
+import { ActivityContext } from "../Providers/ActivityContext";
 
 interface Activity {
   key: string;
@@ -11,7 +13,9 @@ interface Activity {
   rating: [number, number];
 }
 
-const ActivityPageButtons = ({ activities }: Activity[]) => {
+const ActivityPageButtons = ({ activities }: any) => {
+  const { selectRef }: any = useContext(ActivityContext);
+
   const handleChange = (e) => {
     switch (e.target.value) {
       case "1":
@@ -60,7 +64,7 @@ const ActivityPageButtons = ({ activities }: Activity[]) => {
   return (
     <div className={styles.buttonContainer}>
       <div className={styles.button}>
-        <select name="sortera" onChange={handleChange}>
+        <select name="sortera" onChange={handleChange} ref={selectRef}>
           <option value="" disabled selected hidden>
             Sortera
           </option>

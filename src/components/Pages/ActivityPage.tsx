@@ -6,6 +6,7 @@ import ActivityHero from "../ActivityPageComponents/ActivityHero";
 import ActivityCard from "../common/ActivityCard/ActivityCard";
 import BlogItem from "../common/BlogItem/BlogItem";
 import ActivityPageButtons from "../ActivityPageComponents/ActivityPageButtons";
+import Loading from "../common/Loading/Loading";
 
 interface ActivityObject {
   id: string;
@@ -18,10 +19,6 @@ interface ActivityObject {
 }
 
 const ActivityPage = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const { id }: any = useParams();
   const {
     climbingActivities,
@@ -30,6 +27,10 @@ const ActivityPage = () => {
     activities,
     blogItems,
   }: any = useContext(ActivityContext);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const activitiesID =
     id === "climbing"
@@ -45,6 +46,12 @@ const ActivityPage = () => {
 
   const blogID =
     id === "climbing" ? 1 : id === "kayak" ? 2 : id === "snowshoes" ? 3 : 0;
+
+  console.log(activities, id);
+
+  if (!activitiesID.length) {
+    return <Loading />;
+  }
 
   return (
     <>

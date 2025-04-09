@@ -20,6 +20,7 @@ interface BlogObject {
 }
 
 interface ContextProps {
+  loading: boolean;
   climbingActivities: ActivityObject[];
   kayakActivities: ActivityObject[];
   snowshoesActivities: ActivityObject[];
@@ -34,6 +35,7 @@ interface ContextProps {
   testimonialRef: React.RefObject<null>;
   climbingSectionRef: React.RefObject<null>;
   searchRef: React.RefObject<null>;
+  selectRef: React.RefObject<null>;
   handleSearchBtnClick: () => void;
 }
 
@@ -44,6 +46,7 @@ interface ProviderProps {
 const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
+  const [loading, setLoading] = useState(true);
   const [persons, setPersons] = useState(1);
   const [favoriteList, setFavoriteList] = useState<Object[]>([]);
   const [searchVal, setSearchVal] = useState("");
@@ -59,52 +62,96 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const [
-          climbingActivitiesSnapshot,
-          kayakActivitiesSnapshot,
-          snowshoesActivitiesSnapshot,
-          blogItemsSnapshot,
-          climbingSnapshot,
-          kayakSnapshot,
-          snoeshoesSnapshot,
-        ] = await Promise.all([
-          getDocs(collection(db, "climbing_activities")),
-          getDocs(collection(db, "kayak_activities")),
-          getDocs(collection(db, "snowshoes_activities")),
-          getDocs(collection(db, "blogItems")),
-          getDocs(collection(db, "climbing")),
-          getDocs(collection(db, "kayak")),
-          getDocs(collection(db, "snowshoes")),
-        ]);
+      const storedClimbing = localStorage.getItem("climbingActivities");
+      const storedKayak = localStorage.getItem("kayakActivities");
+      const storedSnowshoes = localStorage.getItem("snowshoesActivities");
+      const storedBlogItems = localStorage.getItem("blogItems");
+      const activities = localStorage.getItem("activities");
 
-        const climbingActivities = climbingActivitiesSnapshot.docs.map(
-          (doc: any) => doc.data()
-        );
-        const kayakActivities = kayakActivitiesSnapshot.docs.map((doc: any) =>
-          doc.data()
-        );
-        const snowshoesActivities = snowshoesActivitiesSnapshot.docs.map(
-          (doc: any) => doc.data()
-        );
-        const blogItems = blogItemsSnapshot.docs.map((doc: any) => doc.data());
-        const climbing = climbingSnapshot.docs.map((doc: any) => doc.data());
-        const kayak = kayakSnapshot.docs.map((doc: any) => doc.data());
-        const snowshoes = snoeshoesSnapshot.docs.map((doc: any) => doc.data());
+      if (
+        storedClimbing &&
+        storedKayak &&
+        storedSnowshoes &&
+        storedBlogItems &&
+        activities
+      ) {
+        setClimbingActivities(JSON.parse(storedClimbing));
+        setKayakActivities(JSON.parse(storedKayak));
+        setSnowshoesActivities(JSON.parse(storedSnowshoes));
+        setBlogItems(JSON.parse(storedBlogItems));
+        setActivities(JSON.parse(activities));
+        setLoading(false);
+        console.log("using stored data");
+      } else {
+        try {
+          const [
+            climbingActivitiesSnapshot,
+            kayakActivitiesSnapshot,
+            snowshoesActivitiesSnapshot,
+            blogItemsSnapshot,
+            climbingSnapshot,
+            kayakSnapshot,
+            snoeshoesSnapshot,
+          ] = await Promise.all([
+            getDocs(collection(db, "climbing_activities")),
+            getDocs(collection(db, "kayak_activities")),
+            getDocs(collection(db, "snowshoes_activities")),
+            getDocs(collection(db, "blogItems")),
+            getDocs(collection(db, "climbing")),
+            getDocs(collection(db, "kayak")),
+            getDocs(collection(db, "snowshoes")),
+          ]);
 
-        const activities = [];
-        activities.push(climbing, kayak, snowshoes);
+          const climbingActivities = climbingActivitiesSnapshot.docs.map(
+            (doc: any) => doc.data()
+          );
+          const kayakActivities = kayakActivitiesSnapshot.docs.map((doc: any) =>
+            doc.data()
+          );
+          const snowshoesActivities = snowshoesActivitiesSnapshot.docs.map(
+            (doc: any) => doc.data()
+          );
+          const blogItems = blogItemsSnapshot.docs.map((doc: any) =>
+            doc.data()
+          );
+          const climbing = climbingSnapshot.docs.map((doc: any) => doc.data());
+          const kayak = kayakSnapshot.docs.map((doc: any) => doc.data());
+          const snowshoes = snoeshoesSnapshot.docs.map((doc: any) =>
+            doc.data()
+          );
 
-        setClimbingActivities(climbingActivities);
-        setKayakActivities(kayakActivities);
-        setSnowshoesActivities(snowshoesActivities);
-        setBlogItems(blogItems);
-        setActivities(activities);
-      } catch (error) {
-        console.error("Error fetching data from Firestore: ", error);
+          const activities = [];
+          activities.push(climbing, kayak, snowshoes);
+
+          setClimbingActivities(climbingActivities);
+          setKayakActivities(kayakActivities);
+          setSnowshoesActivities(snowshoesActivities);
+          setBlogItems(blogItems);
+          setActivities(activities);
+
+          localStorage.setItem(
+            "climbingActivities",
+            JSON.stringify(climbingActivities)
+          );
+          localStorage.setItem(
+            "kayakActivities",
+            JSON.stringify(kayakActivities)
+          );
+          localStorage.setItem(
+            "snowshoesActivities",
+            JSON.stringify(snowshoesActivities)
+          );
+          localStorage.setItem("blogItems", JSON.stringify(blogItems));
+          localStorage.setItem("activities", JSON.stringify(activities));
+
+          console.log("using fetched data");
+        } catch (error) {
+          console.error("Error fetching data from Firestore: ", error);
+        } finally {
+          setLoading(false);
+        }
       }
     };
-
     fetchData();
   }, []);
 
@@ -115,10 +162,12 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const testimonialRef = useRef(null);
   const climbingSectionRef = useRef(null);
   const searchRef = useRef(null);
+  const selectRef = useRef(null);
 
   return (
     <ActivityContext.Provider
       value={{
+        loading,
         climbingActivities,
         kayakActivities,
         snowshoesActivities,
@@ -133,6 +182,7 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         testimonialRef,
         climbingSectionRef,
         searchRef,
+        selectRef,
         handleSearchBtnClick,
       }}
     >
@@ -140,4 +190,5 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
     </ActivityContext.Provider>
   );
 };
+
 export { ActivityContext, ActivityContextProvider };

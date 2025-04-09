@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
 import { Main } from "../BookingComponents/Main";
 import Description from "../BookingComponents/Description";
+import Loading from "../common/Loading/Loading";
 
 const Booking = () => {
   const { id } = useParams();
@@ -48,6 +49,10 @@ const Booking = () => {
         activity.id !== foundActivity.id
     )
     .slice(0, 2);
+
+  if (!foundActivity) {
+    return <Loading />;
+  }
 
   return (
     <>

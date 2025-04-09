@@ -32,7 +32,7 @@ const HeaderIcons = () => {
         className={`${styles.favoriteList} ${styles.list}`}
         ref={favoriteListRef}
       >
-        {favoriteList.map((activity) => (
+        {favoriteList.map((activity: any) => (
           <Link
             key={activity.id}
             className={styles.link}
