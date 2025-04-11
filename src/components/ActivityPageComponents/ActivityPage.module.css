@@ -61,13 +61,14 @@
 .cardContainer {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-top: 20px;
+  margin-bottom: 10px;
   gap: 30px;
-  /* @media only screen and (max-width: 1368px) {
-    justify-content: space-evenly;
-  } */
+  @media only screen and (max-width: 1364px) {
+    flex-wrap: wrap;
+    max-width: 800px;
+  }
 }
 
 .textContainer > h1 {

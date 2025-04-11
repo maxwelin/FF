@@ -1,9 +1,9 @@
-import Toast from "../common/Toast";
+import SignUp from "../common/Header/SignUp";
 
 const BlogPage = () => {
   return (
     <>
-      <Toast />
+      <SignUp />
     </>
   );
 };

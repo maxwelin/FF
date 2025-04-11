@@ -65,6 +65,20 @@ const ActivityPage = () => {
     return <Loading />;
   }
 
+  const slicedArrayFirstHalf = (arr: ActivityObject[]) => {
+    return arr.slice(0, arr.length / 2);
+  };
+
+  const slicedArraySecondHalf = (arr: ActivityObject[]) => {
+    return arr.slice(arr.length / 2, arr.length);
+  };
+
+  const firstHalfSorted = slicedArrayFirstHalf(sortedActivityBasedOnId);
+  const secondHalfSorted = slicedArraySecondHalf(sortedActivityBasedOnId);
+
+  const firstHalfUnsorted = slicedArrayFirstHalf(activitiesID);
+  const secondHalfUnsorted = slicedArraySecondHalf(activitiesID);
+
   return (
     <>
       <ActivityHero activity={activities[activityID][0]} />
@@ -72,7 +86,7 @@ const ActivityPage = () => {
       <div className={styles.container}>
         <div className={styles.cardContainer}>
           {sortedActivityBasedOnId.length
-            ? sortedActivityBasedOnId.map((activity: ActivityObject) => (
+            ? firstHalfSorted.map((activity: ActivityObject) => (
                 <ActivityCard
                   key={activity.id}
                   id={activity.id}
@@ -83,7 +97,32 @@ const ActivityPage = () => {
                   rating={activity.rating}
                 />
               ))
-            : activitiesID.map((activity: ActivityObject) => (
+            : firstHalfUnsorted.map((activity: ActivityObject) => (
+                <ActivityCard
+                  key={activity.id}
+                  id={activity.id}
+                  img={activity.img}
+                  h2={activity.h2}
+                  h3={activity.h3}
+                  price={activity.price}
+                  rating={activity.rating}
+                />
+              ))}
+        </div>
+        <div className={styles.cardContainer}>
+          {sortedActivityBasedOnId.length
+            ? secondHalfSorted.map((activity: ActivityObject) => (
+                <ActivityCard
+                  key={activity.id}
+                  id={activity.id}
+                  img={activity.img}
+                  h2={activity.h2}
+                  h3={activity.h3}
+                  price={activity.price}
+                  rating={activity.rating}
+                />
+              ))
+            : secondHalfUnsorted.map((activity: ActivityObject) => (
                 <ActivityCard
                   key={activity.id}
                   id={activity.id}

@@ -21,7 +21,8 @@ const ReviewCard = ({
   console.log(backgroundColor);
   return (
     <div
-      className={`h-[110px] w-[75%] rounded-[50px] p-[15px] box-border bg-${backgroundColor} flex pr-[70px] overflow-hidden`}
+      className={`h-[110px] w-[100%] min-w-[400px] rounded-[50px] p-[15px] box-border flex pr-[70px] overflow-hidden`}
+      style={{ backgroundColor: `${backgroundColor}` }}
     >
       <img
         className="min-h-[80px] min-w-[80px] object-cover rounded-[50%]"
@@ -43,7 +44,7 @@ const ReviewCard = ({
         <h4 className={styles.name}>{name}</h4>
         <p className={styles.date}>{date}</p>
       </div>
-      <p>{comment}</p>
+      <p className={styles.comment}>{comment}</p>
     </div>
   );
 };

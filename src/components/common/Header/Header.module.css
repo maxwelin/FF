@@ -79,10 +79,10 @@
 }
 
 .searchList {
-  border: 2px solid gray;
+  border-radius: 5px;
   z-index: 100;
   position: absolute;
-  top: 30px;
+  top: 38px;
   left: -210px;
   max-height: 680px;
 }
@@ -92,7 +92,8 @@
   width: 236px;
   background-color: #f8f8f8;
   overflow: hidden;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  z-index: 2000 !important;
 }
 
 .list :nth-child(odd) > li {
@@ -103,11 +104,6 @@
   background-color: #109ac6 !important;
   color: white;
   transition: all 0.1s ease;
-}
-
-.visible {
-  opacity: 1 !important;
-  pointer-events: all;
 }
 
 .link {
@@ -141,10 +137,74 @@
 }
 
 .favoriteList {
-  border: 2px solid gray;
+  border-radius: 5px;
+  user-select: none;
   cursor: pointer;
   z-index: 1;
   position: absolute;
-  top: 30px;
-  opacity: 0;
+  top: 38px;
+  right: 10%;
+}
+
+.activeModal {
+  overflow: hidden;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 100 !important ;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.2);
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.overlayTransparent {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 100 !important ;
+  background: rgba(49, 49, 49, 0.2);
+}
+
+.modalContent {
+  user-select: none;
+  position: absolute;
+  top: 86px;
+  right: 10%;
+  background: #f8f8f8;
+  padding: 14px 28px;
+  border-radius: 5px;
+  max-width: 600px;
+  min-width: 300px;
+  z-index: 200 !important;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modalContent > h2 {
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: 24px;
+}
+
+.closeModal {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }

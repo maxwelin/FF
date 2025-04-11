@@ -2,14 +2,43 @@ import { useContext } from "react";
 import ReviewCard from "./ReviewCard";
 import styles from "./Reviews.module.css";
 import { ActivityContext } from "../Providers/ActivityContext";
+import { Star, StarHalf } from "lucide-react";
 
 const Reviews = ({ activity }: any) => {
-  const { reviewRef } = useContext(ActivityContext);
+  const { reviewRef }: any = useContext(ActivityContext);
+
+  const isEven = (rating: number): boolean => {
+    return rating % 1 == 0;
+  };
 
   return (
-    <div className="ml-[10%] mr-[10%] h-auto flex flex-col" ref={reviewRef}>
-      <h3>Kundrecensioner</h3>
-      <p className={styles.gray}>{activity.rating[1]} recensioner</p>
+    <div className="ml-[10%] w-[70%] h-auto flex flex-col" ref={reviewRef}>
+      <div className="flex flex-row">
+        <div>
+          <h3 className="mb-2">Kundrecensioner</h3>
+          <p className={styles.gray}>{activity.rating[1]} recensioner</p>
+        </div>
+        <div className="ml-auto flex flex-col justify-between">
+          <div className="h-[29px] box-border mb-2">
+            <Star size={30} color="#FFD700" fill="#FFD700" />
+            <Star size={30} color="#FFD700" fill="#FFD700" />
+            <Star size={30} color="#FFD700" fill="#FFD700" />
+            <Star size={30} color="#FFD700" fill="#FFD700" />
+            <StarHalf size={30} color="#FFD700" fill="#FFD700" />
+          </div>
+          <p className={`${styles.gray} box-border`}>
+            {isEven(activity.rating[0]) ? (
+              <p className={styles.gray}>
+                {activity.rating[0]}.0 · {activity.rating[1]} recensioner
+              </p>
+            ) : (
+              <p>
+                {activity.rating[0]} · {activity.rating[1]} recensioner
+              </p>
+            )}
+          </p>
+        </div>
+      </div>
       <ReviewCard
         img={"/assets/sofia.png"}
         name={"Sofia Norén"}
@@ -24,7 +53,7 @@ const Reviews = ({ activity }: any) => {
         img={"/assets/alex.png"}
         name={"Alex Sjöberg"}
         date={"3 feb 2025, 12:15"}
-        rating={3}
+        rating={5}
         comment={
           "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorem nulla quisquam eaque fugiat officiis soluta quibusdam! Pariatur tempora non ipsum laboriosam beatae sequi neque unde minus, earum consectetur doloribus aspernatur aliquam expedita nobis et commodi blanditiis, eos quis repellendus quod?"
         }
@@ -44,7 +73,7 @@ const Reviews = ({ activity }: any) => {
         img={"/assets/hedda.png"}
         name={"Hedda Eriksson"}
         date={"21 jan 2025, 21:07"}
-        rating={4}
+        rating={5}
         comment={
           "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut ullam quo sint delectus nam debitis unde neque maxime perferendis. Harum numquam amet nihil perferendis illo non dolores nesciunt omnis similique dolore ad, aspernatur ex quia."
         }
@@ -54,7 +83,7 @@ const Reviews = ({ activity }: any) => {
         img={"/assets/james.png"}
         name={"James Maverick"}
         date={"17 jan 2025, 09:31"}
-        rating={4}
+        rating={5}
         comment={
           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod rem numquam necessitatibus minus. Amet dolorem iusto fugiat suscipit autem hic?"
         }

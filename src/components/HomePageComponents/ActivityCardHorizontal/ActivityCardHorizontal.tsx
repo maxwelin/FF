@@ -31,8 +31,10 @@ const ActivityCardHorizontal = ({
         <img src={img} alt="" loading="lazy" />
       </div>
       <div className={styles.textContainer}>
-        <span className={styles.newPrice}>{calcNewPrice(price)} SEK</span>
-        <span className={styles.oldPrice}>{price} SEK</span>
+        <div>
+          <span className={styles.newPrice}>{calcNewPrice(price)} SEK</span>
+          <span className={styles.oldPrice}>{price} SEK</span>
+        </div>
         <h2>{h2}</h2>
         <div className={styles.review}>
           {isEven(rating[0]) ? <p>{rating[0]}.0</p> : <p>{rating[0]}</p>}
