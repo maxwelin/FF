@@ -18,7 +18,6 @@ const ReviewCard = ({
   comment,
   backgroundColor,
 }: Props) => {
-  console.log(backgroundColor);
   return (
     <div
       className={`h-[110px] w-[100%] min-w-[400px] rounded-[50px] p-[15px] box-border flex pr-[70px] overflow-hidden`}
@@ -32,8 +31,9 @@ const ReviewCard = ({
 
       <div className="flex flex-col justify-around pl-[5px] mr-[10px] min-w-[200px]">
         <div className="flex flex-row align-middle w-[80%]">
-          {Array.from({ length: rating }).map(() => (
+          {Array.from({ length: rating }).map((_, index) => (
             <Star
+              key={index}
               className="mr-[4px]"
               size={20}
               color="#FFD700"

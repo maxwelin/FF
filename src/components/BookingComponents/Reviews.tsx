@@ -12,7 +12,7 @@ const Reviews = ({ activity }: any) => {
   };
 
   return (
-    <div className="ml-[10%] w-[70%] h-auto flex flex-col" ref={reviewRef}>
+    <div className="ml-[10%] w-[59%] h-auto flex flex-col" ref={reviewRef}>
       <div className="flex flex-row">
         <div>
           <h3 className="mb-2">Kundrecensioner</h3>

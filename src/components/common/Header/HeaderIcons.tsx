@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
 import { User, Heart, X } from "lucide-react";
 import { ActivityContext } from "../../Providers/ActivityContext";
@@ -9,12 +9,32 @@ import SignUp from "./SignUp";
 const HeaderIcons = () => {
   const { favoriteList }: any = useContext(ActivityContext);
 
+  const listRef = useRef(null);
+
   const [modal, setModal] = useState(false);
   const [toggleFavorite, setToggleFavorite] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
   };
+
+  const handleClickOutside = (event: any) => {
+    if (listRef.current && !listRef.current.contains(event.target)) {
+      setToggleFavorite(false);
+    }
+  };
+
+  useEffect(() => {
+    if (toggleFavorite) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [toggleFavorite]);
 
   const toggleFavoritesList = () => {
     if (favoriteList.length > 0) setToggleFavorite(!toggleFavorite);
@@ -39,11 +59,7 @@ const HeaderIcons = () => {
       </div>
       {toggleFavorite && favoriteList.length > 0 && (
         <>
-          <div
-            className={styles.overlayTransparent}
-            onClick={toggleFavoritesList}
-          ></div>
-          <ul className={`${styles.favoriteList} ${styles.list}`}>
+          <ul ref={listRef} className={`${styles.favoriteList} ${styles.list}`}>
             {favoriteList.map((activity: any) => (
               <Link
                 key={activity.id}
