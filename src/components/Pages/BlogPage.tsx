@@ -1,10 +1,2 @@
-import SignUp from "../common/Header/SignUp";
-
-const BlogPage = () => {
-  return (
-    <>
-      <SignUp />
-    </>
-  );
-};
+const BlogPage = () => {};
 export default BlogPage;

@@ -28,13 +28,13 @@ const Reviews = ({ activity }: any) => {
           </div>
           <p className={`${styles.gray} box-border`}>
             {isEven(activity.rating[0]) ? (
-              <p className={styles.gray}>
+              <span className={styles.gray}>
                 {activity.rating[0]}.0 · {activity.rating[1]} recensioner
-              </p>
+              </span>
             ) : (
-              <p>
+              <span>
                 {activity.rating[0]} · {activity.rating[1]} recensioner
-              </p>
+              </span>
             )}
           </p>
         </div>

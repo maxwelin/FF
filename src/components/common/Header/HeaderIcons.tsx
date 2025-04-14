@@ -1,13 +1,19 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import styles from "./Header.module.css";
+import signUpStyles from "./SignUp.module.css";
 import { User, Heart, X } from "lucide-react";
 import { ActivityContext } from "../../Providers/ActivityContext";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
+import LoginForm from "./LogInForm";
+import { signOut } from "firebase/auth";
+import { auth } from "../../../firebase";
+import { toast, Slide } from "react-toastify";
 import SignUp from "./SignUp";
 
 const HeaderIcons = () => {
-  const { favoriteList }: any = useContext(ActivityContext);
+  const { favoriteList, loggedIn, setLoggedIn, register, setRegister }: any =
+    useContext(ActivityContext);
 
   const listRef = useRef(null);
 
@@ -16,11 +22,33 @@ const HeaderIcons = () => {
 
   const toggleModal = () => {
     setModal(!modal);
+    setRegister(false);
   };
 
   const handleClickOutside = (event: any) => {
     if (listRef.current && !listRef.current.contains(event.target)) {
       setToggleFavorite(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      setLoggedIn(false);
+      setModal(false);
+      toast.success(`Användaren är utloggad.`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+    } catch (error: any) {
+      console.error("Fel vid utloggning:", error.message);
     }
   };
 
@@ -37,14 +65,22 @@ const HeaderIcons = () => {
   }, [toggleFavorite]);
 
   const toggleFavoritesList = () => {
-    if (favoriteList.length > 0) setToggleFavorite(!toggleFavorite);
+    if (favoriteList.length > 0) {
+      setToggleFavorite(!toggleFavorite);
+    } else {
+      toast.error(`Inga favoriter sparade`, {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+    }
   };
-
-  if (modal) {
-    document.body.classList.add("activeModal");
-  } else {
-    document.body.classList.remove("activeModal");
-  }
 
   return (
     <div className={styles.iconContainer}>
@@ -78,15 +114,53 @@ const HeaderIcons = () => {
           </ul>
         </>
       )}
-      <User className={styles.icon} onClick={toggleModal} />
+      {loggedIn ? (
+        <User className={styles.icon} onClick={toggleModal} fill={"#black"} />
+      ) : (
+        <User className={styles.icon} onClick={toggleModal} />
+      )}
 
       {modal && (
         <div className={styles.modal}>
           <div className={styles.overlay} onClick={toggleModal}></div>
           <div className={styles.modalContent}>
-            <h2>Logga in</h2>
-            <SignUp />
-            <X size={32} className={styles.closeModal} onClick={toggleModal} />
+            {register && (
+              <>
+                <h2>Registrera</h2>
+                <SignUp />
+                <X
+                  size={32}
+                  className={styles.closeModal}
+                  onClick={toggleModal}
+                />
+              </>
+            )}
+            {!loggedIn && !register && (
+              <>
+                <h2>Logga in</h2>
+                <LoginForm setModal={setModal} />
+                <X
+                  size={32}
+                  className={styles.closeModal}
+                  onClick={toggleModal}
+                />
+              </>
+            )}
+            {loggedIn && (
+              <>
+                <h2>
+                  Här finns inte mycket <br /> man kan göra..
+                </h2>
+                <br />
+                <br />
+                <button
+                  className={`${signUpStyles.cta} ${signUpStyles.register}`}
+                  onClick={handleLogout}
+                >
+                  Logga ut
+                </button>
+              </>
+            )}
           </div>
         </div>
       )}

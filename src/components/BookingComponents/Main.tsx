@@ -72,7 +72,7 @@ export const Main = ({ activity }: any) => {
             <li key={index}>{item}</li>
           ))}
         </ul>
-        <Form />
+        <Form activity={activity} />
         <div className={styles.checkContainer}>
           <p>
             <Check className={styles.check} />
