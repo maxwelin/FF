@@ -5,10 +5,10 @@ import { NavLink } from "react-router-dom";
 const Logotype = () => {
   return (
     <>
-      <NavLink to="/">
+      <NavLink className={styles.navLink} to="/">
         <div className={styles.logoContainer}>
           <Logo sides={55} />
-          <h1>FriluftsFärder</h1>
+          <h1 className={styles.logotype}>FriluftsFärder</h1>
         </div>
       </NavLink>
     </>

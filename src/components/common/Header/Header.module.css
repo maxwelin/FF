@@ -23,7 +23,11 @@
   font-style: italic;
   font-weight: 500;
   color: #053747;
-  text-decoration-color: #053747;
+  text-decoration: underline;
+}
+
+.navLink {
+  all: unset;
 }
 
 .navbar {
