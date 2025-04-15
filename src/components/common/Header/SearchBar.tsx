@@ -21,7 +21,6 @@ const SearchBar = () => {
 
   const [searchResult, setSearchResult] = useState(activities);
   const [toggleSearch, setToggleSearch] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
 
   const handleClickOutside = (event: any) => {
     if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -52,7 +51,6 @@ const SearchBar = () => {
     setToggleSearch(!toggleSearch);
     if (!toggleSearch && inputRef.current) {
       inputRef.current.focus();
-      setIsFocused(true);
     }
   };
 
@@ -73,8 +71,8 @@ const SearchBar = () => {
     setSearchResult(filteredActivities);
   };
 
-  const searchRef = useRef(null);
-  const inputRef = useRef(null);
+  const searchRef = useRef<any>(null);
+  const inputRef = useRef<any>(null);
   return (
     <>
       <Search

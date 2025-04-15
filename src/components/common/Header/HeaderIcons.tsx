@@ -5,7 +5,7 @@ import { User, Heart, X } from "lucide-react";
 import { ActivityContext } from "../../Providers/ActivityContext";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
-import LoginForm from "./LogInForm";
+import LoginForm from "./LoginForm";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { toast, Slide } from "react-toastify";
@@ -18,7 +18,7 @@ const HeaderIcons = () => {
   const { loggedIn, setLoggedIn, register, setRegister }: any =
     useContext(UserContext);
 
-  const listRef = useRef(null);
+  const listRef = useRef<HTMLUListElement>(null);
 
   const [modal, setModal] = useState(false);
   const [toggleFavorite, setToggleFavorite] = useState(false);

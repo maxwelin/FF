@@ -30,7 +30,7 @@ const ActivityPageButtons = ({ activities, id }: any) => {
       ? setSortedSnowshoesActivities
       : [];
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     const sortedActivities = [...activities];
 
     switch (e.target.value) {

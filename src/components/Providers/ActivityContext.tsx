@@ -38,11 +38,10 @@ interface ContextProps {
   searchVal: string;
   setSearchVal: React.Dispatch<React.SetStateAction<string>>;
   setPersons: React.Dispatch<React.SetStateAction<number>>;
-  testimonialRef: React.RefObject<null>;
-  climbingSectionRef: React.RefObject<null>;
-  searchRef: React.RefObject<null>;
-  reviewRef: React.RefObject<null>;
-  handleSearchBtnClick: () => void;
+  testimonialRef: React.RefObject<HTMLDivElement | null>;
+  climbingSectionRef: React.RefObject<HTMLDivElement | null>;
+  searchRef: React.RefObject<HTMLDivElement | null>;
+  reviewRef: React.RefObject<HTMLDivElement | null>;
 }
 
 interface ProviderProps {
@@ -183,14 +182,10 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
     fetchData();
   }, []);
 
-  const handleSearchBtnClick = () => {
-    searchRef.current.classList.toggle(styles.visible);
-  };
-
-  const testimonialRef = useRef(null);
-  const climbingSectionRef = useRef(null);
-  const searchRef = useRef(null);
-  const reviewRef = useRef(null);
+  const testimonialRef = useRef<HTMLDivElement>(null);
+  const climbingSectionRef = useRef<HTMLDivElement>(null);
+  const searchRef = useRef<HTMLDivElement>(null);
+  const reviewRef = useRef<HTMLDivElement>(null);
 
   return (
     <ActivityContext.Provider
@@ -217,7 +212,6 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
         climbingSectionRef,
         searchRef,
         reviewRef,
-        handleSearchBtnClick,
       }}
     >
       {children}
