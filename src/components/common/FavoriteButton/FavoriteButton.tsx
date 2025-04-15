@@ -1,5 +1,5 @@
 import { Heart } from "lucide-react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ActivityContext } from "../../Providers/ActivityContext";
 import { toast, Slide } from "react-toastify";
 import styles from "./FavoriteButton.module.css";
@@ -10,7 +10,11 @@ interface Props {
 }
 
 const FavoriteButton = ({ h2, id }: Props) => {
-  const { favoriteList, setFavoriteList } = useContext(ActivityContext);
+  const { favoriteList, setFavoriteList }: any = useContext(ActivityContext);
+
+  useEffect(() => {
+    localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+  }, [favoriteList]);
 
   const isFavorited = () => {
     let isFavorited = false;
@@ -23,7 +27,7 @@ const FavoriteButton = ({ h2, id }: Props) => {
 
   const removeFavorite = (i: number) => {
     setFavoriteList(
-      favoriteList.filter((item: object, index: number) => index !== i)
+      favoriteList.filter((_: any, index: number) => index !== i)
     );
   };
 

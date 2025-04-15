@@ -21,16 +21,6 @@ interface BlogObject {
 
 interface ContextProps {
   loading: boolean;
-  loggedIn: boolean;
-  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-  loggedInEmail: string;
-  setLoggedInEmail: React.Dispatch<React.SetStateAction<string>>;
-  loggedInUserFirstName: string;
-  setLoggedInUserFirstName: React.Dispatch<React.SetStateAction<string>>;
-  loggedInUserLastName: string;
-  setLoggedInUserLastName: React.Dispatch<React.SetStateAction<string>>;
-  register: boolean;
-  setRegister: React.Dispatch<React.SetStateAction<boolean>>;
   climbingActivities: ActivityObject[];
   kayakActivities: ActivityObject[];
   snowshoesActivities: ActivityObject[];
@@ -62,14 +52,12 @@ interface ProviderProps {
 const ActivityContext = createContext<ContextProps | undefined>(undefined);
 
 const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [loggedInEmail, setLoggedInEmail] = useState(false);
-  const [loggedInUserFirstName, setLoggedInUserFirstName] = useState(false);
-  const [loggedInUserLastName, setLoggedInUserLastName] = useState(false);
-  const [register, setRegister] = useState(false);
   const [loading, setLoading] = useState(true);
   const [persons, setPersons] = useState(1);
-  const [favoriteList, setFavoriteList] = useState<Object[]>([]);
+  const [favoriteList, setFavoriteList] = useState(() => {
+    const stored = localStorage.getItem("favoriteList");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [searchVal, setSearchVal] = useState("");
   const [blogItems, setBlogItems] = useState<BlogObject[]>([]);
   const [activities, setActivities] = useState<Object[]>([]);
@@ -86,6 +74,32 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   const [snowshoesActivities, setSnowshoesActivities] = useState<
     ActivityObject[]
   >([]);
+
+  const setData = (
+    climbingActivities: ActivityObject[],
+    kayakActivities: ActivityObject[],
+    snowshoesActivities: ActivityObject[],
+    blogItems: BlogObject[],
+    activities: Object[]
+  ) => {
+    setClimbingActivities(climbingActivities);
+    setKayakActivities(kayakActivities);
+    setSnowshoesActivities(snowshoesActivities);
+    setBlogItems(blogItems);
+    setActivities(activities);
+
+    localStorage.setItem(
+      "climbingActivities",
+      JSON.stringify(climbingActivities)
+    );
+    localStorage.setItem("kayakActivities", JSON.stringify(kayakActivities));
+    localStorage.setItem(
+      "snowshoesActivities",
+      JSON.stringify(snowshoesActivities)
+    );
+    localStorage.setItem("blogItems", JSON.stringify(blogItems));
+    localStorage.setItem("activities", JSON.stringify(activities));
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -150,26 +164,13 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
           const activities = [];
           activities.push(climbing, kayak, snowshoes);
 
-          setClimbingActivities(climbingActivities);
-          setKayakActivities(kayakActivities);
-          setSnowshoesActivities(snowshoesActivities);
-          setBlogItems(blogItems);
-          setActivities(activities);
-
-          localStorage.setItem(
-            "climbingActivities",
-            JSON.stringify(climbingActivities)
+          setData(
+            climbingActivities,
+            kayakActivities,
+            snowshoesActivities,
+            blogItems,
+            activities
           );
-          localStorage.setItem(
-            "kayakActivities",
-            JSON.stringify(kayakActivities)
-          );
-          localStorage.setItem(
-            "snowshoesActivities",
-            JSON.stringify(snowshoesActivities)
-          );
-          localStorage.setItem("blogItems", JSON.stringify(blogItems));
-          localStorage.setItem("activities", JSON.stringify(activities));
 
           console.log("using fetched data");
         } catch (error) {
@@ -194,16 +195,6 @@ const ActivityContextProvider: React.FC<ProviderProps> = ({ children }) => {
   return (
     <ActivityContext.Provider
       value={{
-        loggedIn,
-        setLoggedIn,
-        loggedInEmail,
-        setLoggedInEmail,
-        loggedInUserFirstName,
-        setLoggedInUserFirstName,
-        loggedInUserLastName,
-        setLoggedInUserLastName,
-        register,
-        setRegister,
         loading,
         climbingActivities,
         kayakActivities,

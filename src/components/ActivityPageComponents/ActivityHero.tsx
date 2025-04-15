@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./ActivityPage.module.css";
+import { Link } from "react-router-dom";
 
 const ActivityHero = ({ activity }: any) => {
   const { img, loadingImg, h1, h2, h3 } = activity;
@@ -42,7 +43,12 @@ const ActivityHero = ({ activity }: any) => {
           <div className={styles.textContainer}>
             <h1>{h1}</h1>
             <h2 className={styles.heroText}>{h2}</h2>
-            <h3 className={styles.heroText}>{h3}</h3>
+            <h3 className={styles.heroText}>
+              {h3}&nbsp;
+              <Link className={styles.blogLink} to={"/blog"}>
+                Läs mer
+              </Link>
+            </h3>
           </div>
         </div>
       </div>

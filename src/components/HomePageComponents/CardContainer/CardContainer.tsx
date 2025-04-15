@@ -30,7 +30,7 @@ const CardContainer = ({ h2, buttonText, link, activities, ref }: Props) => {
       <h2>{h2}</h2>
       <p>
         Osäker på vad som skiljer dom olika upplevelserna åt?{" "}
-        <a href="">Titta hit</a>
+        <Link to={"/blog"}>Titta hit</Link>
       </p>
       <div className={styles.cardContainer}>
         {activities.slice(0, 4).map((obj: ActivityObject) => (

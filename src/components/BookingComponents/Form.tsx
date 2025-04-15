@@ -6,10 +6,13 @@ import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { toast, Slide } from "react-toastify";
 import OrderConfirmation from "./OrderConfirmation";
+import { UserContext } from "../Providers/UserContext";
 
 const Form = ({ activity, calcPrice }: any) => {
-  const { setPersons, loggedIn, loggedInEmail }: any =
-    useContext(ActivityContext);
+  const { setPersons }: any = useContext(ActivityContext);
+
+  const { loggedIn, loggedInEmail }: any = useContext(UserContext);
+
   const [modal, setModal] = useState(false);
   const [orderNumber, setOrderNumber] = useState("");
   const [email, setEmail] = useState("");

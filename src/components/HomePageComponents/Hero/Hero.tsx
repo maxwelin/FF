@@ -4,10 +4,7 @@ import HeroGrid from "./HeroGrid";
 const Hero = () => {
   return (
     <div className={styles.imgContainer}>
-      <img
-        src="../../../public/assets/heroKajak.png"
-        alt="couple paddling kayak"
-      />
+      <img src="/assets/heroKajak.png" alt="couple paddling kayak" />
       <HeroGrid />
     </div>
   );

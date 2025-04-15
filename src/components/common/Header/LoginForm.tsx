@@ -3,12 +3,17 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { toast, Slide } from "react-toastify";
 import styles from "./SignUp.module.css";
-import { ActivityContext } from "../../Providers/ActivityContext";
 import { ChevronRight } from "lucide-react";
+import { UserContext } from "../../Providers/UserContext";
 
 const LoginForm = ({ setModal }: any) => {
-  const { setLoggedIn, setLoggedInEmail, loggedIn, setRegister }: any =
-    useContext(ActivityContext);
+  const {
+    setLoggedIn,
+    setLoggedInEmail,
+    loggedIn,
+    loggedInEmail,
+    setRegister,
+  }: any = useContext(UserContext);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,6 +48,7 @@ const LoginForm = ({ setModal }: any) => {
       setLoggedIn(true);
       setLoggedInEmail(userCredential.user.email);
       setModal(false);
+      console.log(loggedInEmail);
       console.log(loggedIn);
       toast.success(`Välkommen ${userCredential.user.email}`, {
         position: "top-right",

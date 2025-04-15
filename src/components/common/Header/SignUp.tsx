@@ -5,10 +5,10 @@ import { useContext, useState } from "react";
 import styles from "./SignUp.module.css";
 import { ChevronRight } from "lucide-react";
 import { toast, Slide } from "react-toastify";
-import { ActivityContext } from "../../Providers/ActivityContext";
+import { UserContext } from "../../Providers/UserContext";
 
 const SignUp = () => {
-  const { setRegister }: any = useContext(ActivityContext);
+  const { setRegister }: any = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");

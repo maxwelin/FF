@@ -45,7 +45,8 @@ export const router = createBrowserRouter([
     element: (
       <>
         <Header />
-        <AboutPage />
+        <BlogPage />
+        {/* <AboutPage /> */}
         <Footer />
       </>
     ),

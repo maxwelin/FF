@@ -95,6 +95,19 @@
   font-size: 20px;
 }
 
+.blogLink {
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 100;
+  margin-top: 12px;
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .buttonContainer {
   display: flex;
   height: 45px;
@@ -106,6 +119,7 @@
 }
 
 .buttonContainer > .button {
+  cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
@@ -126,7 +140,7 @@
 }
 
 .chevron {
-  cursor: pointer;
+  pointer-events: none;
   top: 20%;
   right: 35px;
   position: absolute;
@@ -134,6 +148,7 @@
 }
 
 .button > select {
+  cursor: pointer;
   width: 100%;
   height: 100%;
   border: none;

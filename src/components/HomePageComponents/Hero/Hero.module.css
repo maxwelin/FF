@@ -9,7 +9,6 @@
   width: 100%;
   height: 80vh;
   object-fit: cover;
-  object-position: top;
   @media only screen and (max-width: 800px) {
     object-position: 70% 0;
   }

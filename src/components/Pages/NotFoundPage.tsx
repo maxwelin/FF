@@ -3,8 +3,6 @@ import styles from "./NotFound.module.css";
 import Header from "../common/Header/Header";
 
 const NotFoundPage = () => {
-  console.log("Matched route for path:", window.location.pathname);
-
   return (
     <>
       <Header />
@@ -16,11 +14,14 @@ const NotFoundPage = () => {
               Hoppsan, det ser ut som du har vandrat vilse...
             </h1>
             <Link to="/" className={styles.link}>
-              Klicka här så hjälper vi dig tillbaka
+              Klicka <strong>här</strong> så hjälper vi dig tillbaka
             </Link>
           </div>
         </div>
-        <img src="/assets/404.png" alt="" />
+        <img
+          src="/assets/404.png"
+          alt="Picture of a person in the wilderness"
+        />
       </div>
     </>
   );

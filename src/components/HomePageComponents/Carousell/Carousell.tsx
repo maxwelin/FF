@@ -4,15 +4,30 @@ import styles from "./Carousell.module.css";
 import { ActivityContext } from "../../Providers/ActivityContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Loading from "../../common/Loading/Loading";
+import { toast, Slide } from "react-toastify";
 
 const Carousell = () => {
-  const { climbingActivities, kayakActivities, snowshoesActivities } =
+  const { climbingActivities, kayakActivities, snowshoesActivities }: any =
     useContext(ActivityContext);
 
   const newDate = new Date();
   const day = newDate.getUTCDate();
   const month = newDate.getMonth();
   const year = newDate.getFullYear();
+
+  const handleClick = () => {
+    toast.error("Karusellen har fastnat.. jobbar på det 👷", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      transition: Slide,
+    });
+  };
 
   const monthMap: any = {
     0: "jan",
@@ -46,7 +61,7 @@ const Carousell = () => {
           &nbsp;{day} {monthMap[month]} {year} 23:59
         </strong>
       </p>
-      <div className={styles.cardContainer}>
+      <div className={styles.cardContainer} onClick={handleClick}>
         <ActivityCardHorizontal
           img={climbingActivities[0].img}
           h2={climbingActivities[0].h2}
@@ -75,10 +90,10 @@ const Carousell = () => {
           ]}
         />
       </div>
-      <button className={styles.leftBtn}>
+      <button className={styles.leftBtn} onClick={handleClick}>
         <ChevronLeft size={50} />
       </button>
-      <button className={styles.rightBtn}>
+      <button className={styles.rightBtn} onClick={handleClick}>
         <ChevronRight size={50} />
       </button>
     </div>

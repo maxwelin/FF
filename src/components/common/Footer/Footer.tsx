@@ -1,7 +1,9 @@
+import { ChevronDown, Mail } from "lucide-react";
 import Logotype from "../Header/Logotype";
 import styles from "./Footer.module.css";
 import FooterIcons from "./FooterIcons";
 import FooterUl from "./FooterUl";
+import { toast, Slide } from "react-toastify";
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -21,6 +23,21 @@ const Footer = () => {
     "Säkerhetspolicy",
   ];
 
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    toast.success("Tack för din prenumeration på vårt nyhetsbrev!", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: false,
+      progress: undefined,
+      theme: "light",
+      transition: Slide,
+    });
+  };
+
   return (
     <div className={styles.wrapper}>
       <div className={`${styles.topContainer} ${styles.container}`}>
@@ -28,12 +45,32 @@ const Footer = () => {
         <FooterUl title="Meny" items={menuItems} />
         <FooterUl title="Kontakt" items={kontaktItems} />
         <FooterUl title="Support" items={supportItems} />
-        <p>Nyhetbrev placeholder</p>
+        <form onSubmit={handleSubmit} className={styles.newsletterContainer}>
+          <p className={styles.listTitle}>Prenumerera på vårat nyhetsbrev</p>
+          <label className={styles.emailLabel} htmlFor="email">
+            Email
+          </label>
+          <input className={styles.emailInput} type="email" required></input>
+          <button className={styles.submitBtn} type="submit">
+            <Mail size={20} />
+          </button>
+        </form>
       </div>
       <div className={`${styles.bottomContainer} ${styles.container}`}>
         <p>© {year} FriluftsFärder AB</p>
         <FooterIcons />
-        <p>Button placeholder</p>
+        <div className={styles.buttonContainer}>
+          <div className={styles.button}>
+            <select name="sortera">
+              <option value="" disabled selected hidden>
+                Language
+              </option>
+              <option value="2">...finns bara svenska än så länge</option>
+              <option value="1">Svenska</option>
+            </select>
+            <ChevronDown className={styles.chevron} size={28} />
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -10,10 +10,13 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase";
 import { toast, Slide } from "react-toastify";
 import SignUp from "./SignUp";
+import { UserContext } from "../../Providers/UserContext";
 
 const HeaderIcons = () => {
-  const { favoriteList, loggedIn, setLoggedIn, register, setRegister }: any =
-    useContext(ActivityContext);
+  const { favoriteList }: any = useContext(ActivityContext);
+
+  const { loggedIn, setLoggedIn, register, setRegister }: any =
+    useContext(UserContext);
 
   const listRef = useRef(null);
 

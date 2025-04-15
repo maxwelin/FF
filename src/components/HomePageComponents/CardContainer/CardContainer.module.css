@@ -29,10 +29,12 @@
 }
 
 .container > p > a {
-  font-style: italic;
+  text-decoration: none;
   font-weight: 600;
-  text-decoration: underline;
   color: #0d80a5;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .cardContainer {
