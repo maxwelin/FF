@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import styles from "./Modal.module.css";
+import styles from "./OrderConfirmation.module.css";
 import { X } from "lucide-react";
 
-const Modal = ({
+const OrderConfirmation = ({
   modal,
   setModal,
+  orderNumber,
   activity,
   img,
   email,
@@ -21,18 +22,14 @@ const Modal = ({
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log(loading);
-    const timer = setTimeout((loading: boolean) => {
+    const timer = setTimeout(() => {
       setLoading(false);
-      console.log(loading);
     }, 800);
 
     return () => {
       clearTimeout(timer);
     };
   }, []);
-
-  const orderNumber = "A83nfdDBw8";
 
   return (
     <div className={styles.modal}>
@@ -79,4 +76,4 @@ const Modal = ({
     </div>
   );
 };
-export default Modal;
+export default OrderConfirmation;

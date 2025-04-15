@@ -1,13 +1,17 @@
 import { ChevronRight, ChevronUp } from "lucide-react";
 import styles from "./Booking.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { ActivityContext } from "../Providers/ActivityContext";
-import Modal from "../common/Modal/Modal";
+import { db } from "../../firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { toast, Slide } from "react-toastify";
+import OrderConfirmation from "./OrderConfirmation";
 
-const Form = ({ activity }: any) => {
+const Form = ({ activity, calcPrice }: any) => {
   const { setPersons, loggedIn, loggedInEmail }: any =
     useContext(ActivityContext);
   const [modal, setModal] = useState(false);
+  const [orderNumber, setOrderNumber] = useState("");
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,19 +27,46 @@ const Form = ({ activity }: any) => {
     setVal(e.target.value);
   };
 
-  const handleBooking = (e: any) => {
-    setEmail(e.target[0].value);
-    setFirstName(e.target[1].value);
-    setLastName(e.target[2].value);
-    setDate(e.target[3].value);
-    setPerson(e.target[4].value);
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    setModal(true);
+
+    const order = {
+      name: firstName + " " + lastName,
+      email: email,
+      activity: activity.h2,
+      person: person,
+      timestamp: new Date(),
+    };
+
+    try {
+      const docRef = await addDoc(collection(db, "orders"), order);
+      console.log("Order skickad: ", docRef.id);
+      setOrderNumber(docRef.id);
+      setEmail(e.target[0].value);
+      setFirstName(e.target[1].value);
+      setLastName(e.target[2].value);
+      setDate(e.target[3].value);
+      setPerson(e.target[4].value);
+      setModal(true);
+    } catch (error) {
+      console.error("Något gick fel: ", error);
+      toast.error("Något gick fel, försök igen senare", {
+        position: "top-right",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: false,
+        progress: undefined,
+        theme: "light",
+        transition: Slide,
+      });
+    }
   };
 
   return (
     <>
-      <form className={styles.formContainer} onSubmit={handleBooking}>
+      <form className={styles.formContainer} onSubmit={handleSubmit}>
         <label className={styles.emailLabel} htmlFor="email">
           Email
         </label>
@@ -83,6 +114,7 @@ const Form = ({ activity }: any) => {
               required
               type="date"
               name="date"
+              min={new Date().toISOString().split("T")[0]}
               className={`${styles.inputHalfSize} ${styles.dateSelector}`}
             ></input>
             <ChevronUp className={styles.chevronDateSelect} size={28} />
@@ -108,9 +140,10 @@ const Form = ({ activity }: any) => {
         </button>
       </form>
       {modal && (
-        <Modal
+        <OrderConfirmation
           modal={modal}
           setModal={setModal}
+          orderNumber={orderNumber}
           activity={activity.h2}
           img={activity.img}
           email={email}
@@ -118,7 +151,7 @@ const Form = ({ activity }: any) => {
           firstName={firstName}
           lastName={lastName}
           persons={person}
-          price={activity.price}
+          price={calcPrice(person, activity.price)}
         />
       )}
     </>
