@@ -12,6 +12,7 @@
 }
 
 .logoContainer {
+  cursor: pointer;
   display: flex;
   align-items: center;
 }

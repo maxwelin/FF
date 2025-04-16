@@ -33,6 +33,19 @@ const Form = ({ activity, calcPrice }: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    const form = e.target;
+    const email = form[0].value;
+    const firstName = form[1].value;
+    const lastName = form[2].value;
+    const date = form[3].value;
+    const person = form[4].value;
+
+    setEmail(email);
+    setFirstName(firstName);
+    setLastName(lastName);
+    setDate(date);
+    setPerson(person);
+
     const order = {
       name: firstName + " " + lastName,
       email: email,
@@ -43,13 +56,8 @@ const Form = ({ activity, calcPrice }: any) => {
 
     try {
       const docRef = await addDoc(collection(db, "orders"), order);
-      console.log("Order skickad: ", docRef.id);
+      console.log("Order skickad: ", docRef.id, order);
       setOrderNumber(docRef.id);
-      setEmail(e.target[0].value);
-      setFirstName(e.target[1].value);
-      setLastName(e.target[2].value);
-      setDate(e.target[3].value);
-      setPerson(e.target[4].value);
       setModal(true);
     } catch (error) {
       console.error("Något gick fel: ", error);
@@ -80,10 +88,16 @@ const Form = ({ activity, calcPrice }: any) => {
             type="email"
             name="email"
             required
+            placeholder="adven.ture@gmail.com"
           />
         ) : (
           <>
-            <input type="email" name="email" required />
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="adven.ture@gmail.com"
+            />
           </>
         )}
 
@@ -96,6 +110,7 @@ const Form = ({ activity, calcPrice }: any) => {
               required
               type="text"
               name="name"
+              placeholder="adven"
               className={styles.inputHalfSize}
             />
           </div>
@@ -107,6 +122,7 @@ const Form = ({ activity, calcPrice }: any) => {
               required
               type="text"
               name="lastName"
+              placeholder="ture"
               className={styles.inputHalfSize}
             />
           </div>
